@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/spritesheets/small_present.png" type="Texture" id=1]
+[ext_resource path="res://scenes/small_present.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 2 )
+
+[node name="small_present" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -4 )
+vframes = 2
+hframes = 4
+script = ExtResource( 2 )
+
+[node name="trigger" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="trigger"]
+visible = false
+position = Vector2( 2, -2 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="trigger" to="." method="_on_trigger_area_entered"]

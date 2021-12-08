@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/present_open.ogg-367c766cc84decb5df282e0f5ffadf83.oggstr"
+
+[deps]
+
+source_file="res://assets/music/sfx/present_open.ogg"
+dest_files=[ "res://.import/present_open.ogg-367c766cc84decb5df282e0f5ffadf83.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
