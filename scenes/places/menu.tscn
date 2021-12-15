@@ -1,0 +1,293 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/small_pixel_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/places/menu.gd" type="Script" id=3]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 29, 83 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 128.0
+margin_bottom = 128.0
+color = Color( 0.247059, 0.247059, 0.454902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="Control" parent="."]
+margin_left = -128.0
+margin_right = 256.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="about" type="VBoxContainer" parent="container"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 125.0
+margin_bottom = 125.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="RichTextLabel" parent="container/about"]
+margin_right = 122.0
+margin_bottom = 54.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave amp=50 freq=2]about[/wave]"
+text = "
+about"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fields" type="VBoxContainer" parent="container/about"]
+margin_top = 58.0
+margin_right = 122.0
+margin_bottom = 122.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="RichTextLabel" parent="container/about/fields"]
+margin_right = 122.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "this was a fun little project meant to be redistributed as a christmas card
+made with love, by
+ [tornado radius=1 freq=3]markman4897[/tornado]
+ [rainbow freq=0.5 sat=0.7 val=1]makitakomaker[/rainbow]"
+text = "this was a fun little project meant to be redistributed as a christmas card
+made with love, by
+ markman4897
+ makitakomaker"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="container/about/fields"]
+margin_left = 98.0
+margin_top = 52.0
+margin_right = 122.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 24, 12 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+size_flags_horizontal = 8
+theme = ExtResource( 1 )
+text = "back"
+
+[node name="menu" type="VBoxContainer" parent="container"]
+margin_left = 131.0
+margin_top = 3.0
+margin_right = 253.0
+margin_bottom = 125.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="RichTextLabel" parent="container/menu"]
+margin_right = 122.0
+margin_bottom = 59.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave amp=50 freq=2]christmas
+card game
+2[/wave]"
+text = "
+christmas
+card game
+2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttons" type="VBoxContainer" parent="container/menu"]
+margin_top = 63.0
+margin_right = 122.0
+margin_bottom = 122.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start" type="Button" parent="container/menu/buttons"]
+margin_right = 122.0
+margin_bottom = 17.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath("../settings")
+focus_neighbour_bottom = NodePath("../settings")
+focus_next = NodePath("../settings")
+focus_previous = NodePath(".")
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "start"
+
+[node name="settings" type="Button" parent="container/menu/buttons"]
+margin_top = 21.0
+margin_right = 122.0
+margin_bottom = 38.0
+focus_neighbour_left = NodePath("../start")
+focus_neighbour_top = NodePath("../start")
+focus_neighbour_right = NodePath("../about")
+focus_neighbour_bottom = NodePath("../about")
+focus_next = NodePath("../about")
+focus_previous = NodePath("../start")
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "settings"
+
+[node name="about" type="Button" parent="container/menu/buttons"]
+margin_top = 42.0
+margin_right = 122.0
+margin_bottom = 59.0
+focus_neighbour_left = NodePath("../settings")
+focus_neighbour_top = NodePath("../settings")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../settings")
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "about"
+
+[node name="settings" type="VBoxContainer" parent="container"]
+margin_left = 259.0
+margin_top = 3.0
+margin_right = 381.0
+margin_bottom = 125.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="RichTextLabel" parent="container/settings"]
+margin_right = 122.0
+margin_bottom = 59.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave amp=50 freq=2]settings[/wave]"
+text = "
+settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fields" type="VBoxContainer" parent="container/settings"]
+margin_top = 63.0
+margin_right = 122.0
+margin_bottom = 122.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music" type="HBoxContainer" parent="container/settings/fields"]
+margin_right = 122.0
+margin_bottom = 17.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="container/settings/fields/music"]
+margin_top = 5.0
+margin_right = 18.0
+margin_bottom = 12.0
+theme = ExtResource( 1 )
+text = "music"
+
+[node name="HSlider" type="HSlider" parent="container/settings/fields/music"]
+margin_left = 58.0
+margin_right = 122.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 64, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath("../../sfx/HSlider")
+focus_neighbour_bottom = NodePath("../../sfx/HSlider")
+focus_next = NodePath("../../sfx/HSlider")
+focus_previous = NodePath(".")
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+max_value = 1.0
+step = 0.01
+
+[node name="sfx" type="HBoxContainer" parent="container/settings/fields"]
+margin_top = 21.0
+margin_right = 122.0
+margin_bottom = 38.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="container/settings/fields/sfx"]
+margin_top = 5.0
+margin_right = 12.0
+margin_bottom = 12.0
+theme = ExtResource( 1 )
+text = "sfx"
+
+[node name="HSlider" type="HSlider" parent="container/settings/fields/sfx"]
+margin_left = 58.0
+margin_right = 122.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 64, 0 )
+focus_neighbour_left = NodePath("../../music/HSlider")
+focus_neighbour_top = NodePath("../../music/HSlider")
+focus_neighbour_right = NodePath("../../back")
+focus_neighbour_bottom = NodePath("../../back")
+focus_next = NodePath("../../back")
+focus_previous = NodePath("../../music/HSlider")
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+max_value = 1.0
+step = 0.01
+
+[node name="back" type="Button" parent="container/settings/fields"]
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 24, 12 )
+focus_neighbour_left = NodePath("../sfx/HSlider")
+focus_neighbour_top = NodePath("../sfx/HSlider")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../sfx/HSlider")
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "back"
+
+[node name="tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="container/about/fields/back" to="." method="_slide_screen" binds= [ 1 ]]
+[connection signal="pressed" from="container/menu/buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="container/menu/buttons/settings" to="." method="_slide_screen" binds= [ 2 ]]
+[connection signal="pressed" from="container/menu/buttons/about" to="." method="_slide_screen" binds= [ 0 ]]
+[connection signal="value_changed" from="container/settings/fields/music/HSlider" to="." method="_music_changed"]
+[connection signal="value_changed" from="container/settings/fields/sfx/HSlider" to="." method="_sfx_changed"]
+[connection signal="pressed" from="container/settings/fields/back" to="." method="_slide_screen" binds= [ 1 ]]

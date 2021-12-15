@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/chimp.ase-5f68e2ca432690697bc4e31f581aefbc.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/random/chimp.ase"
+dest_files=[ "res://.import/chimp.ase-5f68e2ca432690697bc4e31f581aefbc.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

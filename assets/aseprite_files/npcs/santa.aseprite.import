@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/santa.aseprite-55821b6406ae2059769a1810ff6219e9.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/npcs/santa.aseprite"
+dest_files=[ "res://.import/santa.aseprite-55821b6406ae2059769a1810ff6219e9.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

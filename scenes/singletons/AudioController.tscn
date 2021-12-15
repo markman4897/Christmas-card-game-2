@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/singletons/AudioController.gd" type="Script" id=2]
+
+[node name="AudioController" type="Node"]
+script = ExtResource( 2 )
+
+[node name="bg_music_0" type="AudioStreamPlayer" parent="."]
+
+[node name="bg_music_1" type="AudioStreamPlayer" parent="."]
+
+[node name="sfx_0" type="AudioStreamPlayer" parent="."]
+
+[node name="sfx_1" type="AudioStreamPlayer" parent="."]
+
+[node name="sfx_2" type="AudioStreamPlayer" parent="."]
+
+[node name="sfx_3" type="AudioStreamPlayer" parent="."]
+
+[node name="sfx_4" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

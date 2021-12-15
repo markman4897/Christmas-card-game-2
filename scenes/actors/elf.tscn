@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/actors/elf.gd" type="Script" id=1]
+[ext_resource path="res://assets/aseprite_files/npcs/elves/b_elf.aseprite" type="SpriteFrames" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6, 2 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 6.5 )
+
+[node name="elf" type="KinematicBody2D"]
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -8 )
+frames = ExtResource( 2 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="body" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -2 )
+shape = SubResource( 2 )
+
+[node name="sensor" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="colission" type="CollisionShape2D" parent="sensor"]
+position = Vector2( 0, -2.5 )
+shape = SubResource( 1 )

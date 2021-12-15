@@ -8,20 +8,48 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://scenes/actors/actor.gd"
+}, {
+"base": "Actor",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://scenes/actors/npc.gd"
+}, {
+"base": "StaticBody2D",
+"class": "SolidObject",
+"language": "GDScript",
+"path": "res://scenes/props/solid_object.gd"
+}, {
+"base": "Area2D",
+"class": "TriggerObject",
+"language": "GDScript",
+"path": "res://scenes/props/trigger_object.gd"
+} ]
 _global_script_class_icons={
-
+"Actor": "",
+"Npc": "",
+"SolidObject": "",
+"TriggerObject": ""
 }
 
 [application]
 
-config/name="Greetings-card"
-run/main_scene="res://screens/enterance.tscn"
+config/name="Christmas-card-game- 2"
+run/main_scene="res://scenes/places/menu.tscn"
 config/icon="res://icon.png"
+
+[aseprite_animation_importer]
+
+aseprite_executable_path="aseprite"
 
 [autoload]
 
-AudioController="*res://singletons/AudioController.tscn"
+Singleton="*res://scenes/singletons/Singleton.gd"
+AudioController="*res://scenes/singletons/AudioController.tscn"
 
 [display]
 
@@ -29,12 +57,12 @@ window/size/width=128
 window/size/height=128
 window/size/test_width=512
 window/size/test_height=512
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "AsepriteWizard", "Todo_Manager" )
+enabled=PoolStringArray( "res://addons/AsepriteAnimationImporter/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg" )
 
 [importer_defaults]
 
@@ -59,37 +87,13 @@ texture={
 "svg/scale": 1.0
 }
 
-[input]
+[physics]
 
-ui_left={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
- ]
-}
-ui_right={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
- ]
-}
-ui_up={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
- ]
-}
-ui_down={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
- ]
-}
+common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+quality/dynamic_fonts/use_oversampling=false

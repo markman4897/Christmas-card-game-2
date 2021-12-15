@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/temple.aseprite-9b3b69f210d17da08185c8e8c03e7b35.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/temple.aseprite"
+dest_files=[ "res://.import/temple.aseprite-9b3b69f210d17da08185c8e8c03e7b35.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

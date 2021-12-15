@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/fonts/small_pixel_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/spritesheets/textbox_9patch.png" type="Texture" id=2]
+[ext_resource path="res://scenes/helpers/textBox.gd" type="Script" id=3]
+[ext_resource path="res://assets/spritesheets/flaoting_star.png" type="Texture" id=4]
+[ext_resource path="res://assets/spritesheets/dialogue_cursor.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0.5 ), Vector2( 1, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54, 4.5 )
+
+[node name="textBox" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="text" type="NinePatchRect" parent="."]
+margin_right = 128.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="text"]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 117.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 1 )
+text = "well this is embarrasing...
+there apears to be an error in the code
+many apologies user
+gaah..."
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor" type="Sprite" parent="text"]
+position = Vector2( 114, 49 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, 0.5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="text/cursor"]
+autoplay = "default"
+anims/RESET = SubResource( 2 )
+anims/default = SubResource( 3 )
+
+[node name="options" type="NinePatchRect" parent="."]
+margin_top = 80.0
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor" type="Sprite" parent="options"]
+position = Vector2( 12, 11 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="options/cursor"]
+autoplay = "default"
+anims/RESET = SubResource( 4 )
+anims/default = SubResource( 5 )
+
+[node name="one" type="Label" parent="options"]
+margin_left = 24.0
+margin_top = 10.0
+margin_right = 117.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "option 1"
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="two" type="Label" parent="options"]
+margin_left = 24.0
+margin_top = 19.0
+margin_right = 117.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = "option 2"
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="three" type="Label" parent="options"]
+margin_left = 24.0
+margin_top = 28.0
+margin_right = 117.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "option 3"
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="a_one" type="Area2D" parent="options"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="options/a_one"]
+position = Vector2( 64, 14.5 )
+shape = SubResource( 1 )
+
+[node name="a_two" type="Area2D" parent="options"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="options/a_two"]
+position = Vector2( 64, 23.5 )
+shape = SubResource( 1 )
+
+[node name="a_three" type="Area2D" parent="options"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="options/a_three"]
+position = Vector2( 64, 32.5 )
+shape = SubResource( 1 )
+
+[node name="tween" type="Tween" parent="."]
+
+[connection signal="input_event" from="options/a_one" to="." method="_options_touch" binds= [ 0 ]]
+[connection signal="input_event" from="options/a_two" to="." method="_options_touch" binds= [ 1 ]]
+[connection signal="input_event" from="options/a_three" to="." method="_options_touch" binds= [ 2 ]]
+[connection signal="tween_all_completed" from="tween" to="." method="end_animation"]

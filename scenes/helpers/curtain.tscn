@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/spritesheets/curtain.png" type="Texture" id=1]
+[ext_resource path="res://scenes/helpers/curtain.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("curtain/curtain:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "down"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("curtain/curtain:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -160 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "up"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("curtain/curtain:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -160 ) ]
+}
+
+[node name="curtain" type="AnimationPlayer"]
+anims/RESET = SubResource( 2 )
+anims/down = SubResource( 1 )
+anims/up = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="curtain" type="Sprite" parent="."]
+z_index = 4096
+texture = ExtResource( 1 )
+centered = false
+
+[connection signal="animation_finished" from="." to="." method="_on_curtain_animation_finished"]
