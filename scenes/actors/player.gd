@@ -25,7 +25,11 @@ func _get_motion():
 		
 		if abs(res.x) > control_deadzone or abs(res.y) > control_deadzone:
 			motion = res
+			# so that left/right animations don't get ignored
+			if abs(motion.y) < control_deadzone: motion.y = 0
 	
 	motion = motion.normalized() * speed
+	
+	print(motion)
 	
 	return motion

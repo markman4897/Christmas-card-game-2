@@ -64,6 +64,10 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray( "res://addons/AsepriteAnimationImporter/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg" )
 
+[gdnative]
+
+singletons=[  ]
+
 [importer_defaults]
 
 texture={
