@@ -36,6 +36,7 @@ func _ready() -> void:
 	# set up red elf
 	$objects/elf.set_idle_animation("cry")
 	$objects/elf.connect_trigger(self, "_elf_trigger")
+	$objects/elf.movement_disabled = true
 	
 	# load music
 	AudioController.play_bg_music("sad")

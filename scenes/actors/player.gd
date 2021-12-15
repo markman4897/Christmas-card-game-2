@@ -30,6 +30,4 @@ func _get_motion():
 	
 	motion = motion.normalized() * speed
 	
-	print(motion)
-	
 	return motion
