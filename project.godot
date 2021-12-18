@@ -62,7 +62,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AsepriteAnimationImporter/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AsepriteAnimationImporter/plugin.cfg", "res://addons/Git_helper/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg" )
 
 [gdnative]
 
