@@ -33,7 +33,7 @@ func _ready():
 	# ping Singleton that this scene is operational
 	# HACK: I'm not sure this is 100% sure to happen after Singleton is already loaded
 	#       lets check that out soon yeah?
-	Singleton._void = connect("ready", Singleton, "audio_singleton_is_on")
+	var _void = connect("ready", Singleton, "audio_singleton_is_on")
 
 
 #

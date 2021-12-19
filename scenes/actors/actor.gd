@@ -1,39 +1,65 @@
-extends KinematicBody2D
-
 class_name Actor
+extends KinematicBody2D
 
 
 export var speed = Vector2(35,25)
 
-
 var movement_disabled := false
 
-var sprites := {
-	"b_elf": preload("res://assets/aseprite_files/npcs/elves/b_elf.aseprite")
-}
+var sprites : Dictionary
+var sprite : String
+var idle_animation : String
 
-export var sprite := "b_elf"
 
-export var idle_animation := "idle"
+export var sprite_exported : String
+export var idle_animation_exported : String
+
+export var shader_replace_color = {
+	"enabled" : false,
+	"first_original" : Color.black,
+	"first_replacement" : Color.black,
+	"second_original" : Color.black,
+	"second_replacement" : Color.black,
+	}
 
 
 func _ready():
-	$sprite.frames = sprites[sprite]
-	set_idle_animation(idle_animation)
+	# set if exported variables are present
+	if sprite_exported != "": sprite = sprite_exported
+	if idle_animation_exported != "": idle_animation = idle_animation_exported
+	
+	# set if variables are present
+	if sprite != "":
+		$sprite.frames = sprites[sprite]
+	if idle_animation != "":
+		set_idle_animation(idle_animation)
+	
+	# set shader if set up in exported variables
+	# TODO: figure out how to do this so you can also replace black color
+	if shader_replace_color.enabled:
+			# load in the shader
+			$sprite.material = preload("res://assets/shaders/color_and_shade_replacement.tres")
+			
+			# set shader_params so it works
+			# TODO: maybe add a check to see if they're all initialised somewhere?
+			$sprite.material.set_shader_param("first", shader_replace_color.first_original)
+			$sprite.material.set_shader_param("first_sub", shader_replace_color.first_replacement)
+			$sprite.material.set_shader_param("second", shader_replace_color.second_original)
+			$sprite.material.set_shader_param("second_sub", shader_replace_color.second_replacement)
 
 func _physics_process(delta: float) -> void:
 	var motion = Vector2(0,0)
 	if !movement_disabled:
 		motion = _get_motion()
-		Singleton._void = move_and_collide(motion * delta)
+		var _void = move_and_collide(motion * delta)
 	_do_animations(motion)
 
 func _get_motion():
 	# just a placeholder for the actual function
 	return Vector2(0,0)
 
-func _process(_delta: float) -> void:
-	self.set_z_index(int(self.position.y))
+#func _process(_delta: float) -> void:
+#	self.set_z_index(int(self.position.y))
 
 
 #

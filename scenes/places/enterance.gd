@@ -1,4 +1,4 @@
-extends Node2D
+extends BasePlace
 
 
 #
@@ -31,12 +31,12 @@ var elf_text = {
 
 func _ready() -> void:
 	# just in case I fuck something up in the editor...
-	$background/doorTrigger.monitoring = false
+	$logic/doorTrigger.monitoring = false
 	
 	# set up red elf
-	$objects/elf.set_idle_animation("cry")
-	$objects/elf.connect_trigger(self, "_elf_trigger")
-	$objects/elf.movement_disabled = true
+	$objects/moving/elf.set_idle_animation("cry")
+	$objects/moving/elf.connect_trigger(self, "_elf_trigger")
+	$objects/moving/elf.movement_disabled = true
 	
 	# load music
 	AudioController.play_bg_music("sad")
@@ -64,7 +64,7 @@ func _on_bg_animation_finished() -> void:
 
 func _after_text(_arg):
 	# set other stuff to advance
-	$background/doorTrigger.monitoring = true
+	$logic/doorTrigger.monitoring = true
 	if $background/bg.animation != "opened":
 		AudioController.play_sfx("door creek")
 		$background/bg.animation = "opening"

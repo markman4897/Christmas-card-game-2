@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/santa_sleigh.ase-a9082b741862c4fbe800e46129b156f2.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/santa_sleigh.ase"
+dest_files=[ "res://.import/santa_sleigh.ase-a9082b741862c4fbe800e46129b156f2.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

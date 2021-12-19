@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform vec4 first:hint_color;
+uniform vec4 second:hint_color;
+
+uniform vec4 first_sub:hint_color;
+uniform vec4 second_sub:hint_color;
+
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	
+    vec4 a4 = abs(col - first);
+    float a = max(max(a4.r, a4.g), a4.b);
+	
+	vec4 b4 = abs(col - second);
+	float b = max(max(b4.r, b4.g), b4.g);
+    
+	if(a < 0.01) {
+        col = first_sub;
+    }
+	
+	if(b < 0.01) {
+		col = second_sub
+	}
+    COLOR = col;
+}"
+
+[resource]
+shader = SubResource( 3 )
+shader_param/first = null
+shader_param/second = null
+shader_param/first_sub = null
+shader_param/second_sub = null

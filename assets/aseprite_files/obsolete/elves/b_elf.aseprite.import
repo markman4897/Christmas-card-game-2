@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/b_elf.aseprite-0f620ee5cf6df1ca8eb4e0c026b1baba.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/obsolete/elves/b_elf.aseprite"
+dest_files=[ "res://.import/b_elf.aseprite-0f620ee5cf6df1ca8eb4e0c026b1baba.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

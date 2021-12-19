@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/places/base_place.gd" type="Script" id=3]
+
+[node name="enterance" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="bg" type="AnimatedSprite" parent="background"]
+position = Vector2( 64, 64 )
+playing = true
+
+[node name="logic" type="Node2D" parent="."]
+
+[node name="border" type="StaticBody2D" parent="logic"]
+visible = false
+collision_mask = 0
+
+[node name="outer" type="CollisionPolygon2D" parent="logic/border"]
+build_mode = 1
+polygon = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="static" type="YSort" parent="objects"]
+
+[node name="moving" type="Node2D" parent="objects"]
+
+[node name="foreground" type="Node2D" parent="."]
+
+[connection signal="animation_finished" from="background/bg" to="." method="_on_bg_animation_finished"]

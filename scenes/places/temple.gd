@@ -1,4 +1,4 @@
-extends Node2D
+extends BasePlace
 
 #
 # VARIABLES
@@ -39,10 +39,10 @@ func _ready() -> void:
 	# just in case I fuck something up in the editor...
 	$background/santa_sleigh.visible = false
 	
-	$objects/elf.connect_trigger(self, "_elf_trigger")
-	$objects/elf.disable_collisions_when_moving = true
+	$objects/moving/elf.connect_trigger(self, "_elf_trigger")
+	$objects/moving/elf.disable_collisions_when_moving = true
 	
-	for present in $objects/presents.get_children():
+	for present in $objects/static/presents.get_children():
 		present.connect("area_entered", self, "present_opened")
 
 
@@ -58,7 +58,7 @@ func _on_bg_animation_finished() -> void:
 func present_opened(_area):
 	present_count += 1
 	if present_count == present_total:
-		$objects/elf.move_to(Vector2(106,112))
+		$objects/moving/elf.move_to(Vector2(106,112))
 
 func _elf_trigger(_a, _b, _c, _d) -> void:
 	# start the text thing

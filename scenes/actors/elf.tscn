@@ -1,34 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/actors/elf.gd" type="Script" id=1]
-[ext_resource path="res://assets/aseprite_files/npcs/elves/b_elf.aseprite" type="SpriteFrames" id=2]
+[ext_resource path="res://scenes/actors/npc.gd" type="Script" id=1]
+[ext_resource path="res://assets/aseprite_files/npcs/elf.ase" type="SpriteFrames" id=2]
+[ext_resource path="res://scenes/actors/actor.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6, 2 )
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 6.5 )
-
-[node name="elf" type="KinematicBody2D"]
-collision_mask = 2
+[node name="elf" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
+idle_animation_exported = "idle"
+shader_replace_color = {
+"enabled": false,
+"first_original": Color( 0, 0, 0, 1 ),
+"first_replacement": Color( 0, 0, 0, 1 ),
+"second_original": Color( 0, 0, 0, 1 ),
+"second_replacement": Color( 0, 0, 0, 1 )
+}
 
-[node name="sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -8 )
+[node name="sprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 3
-playing = true
-
-[node name="body" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, -2 )
-shape = SubResource( 2 )
-
-[node name="sensor" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 32
-
-[node name="colission" type="CollisionShape2D" parent="sensor"]
-position = Vector2( 0, -2.5 )
-shape = SubResource( 1 )

@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/big_bad.ase-47d24c8884d66a1d98a69bfafa2c4dd8.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/npcs/big_bad.ase"
+dest_files=[ "res://.import/big_bad.ase-47d24c8884d66a1d98a69bfafa2c4dd8.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

@@ -2,15 +2,6 @@ extends Actor
 
 const control_deadzone := 3
 
-func _init():
-
-	sprites = {
-		"player": preload("res://assets/aseprite_files/npcs/player.ase")
-	}
-
-	sprite = "player"
-	idle_animation = "idle"
-
 
 func _get_motion():
 	# keyboard input

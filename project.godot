@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/actors/actor.gd"
 }, {
+"base": "Node2D",
+"class": "BasePlace",
+"language": "GDScript",
+"path": "res://scenes/places/base_place.gd"
+}, {
 "base": "Actor",
 "class": "Npc",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Actor": "",
+"BasePlace": "",
 "Npc": "",
 "SolidObject": "",
 "TriggerObject": ""
@@ -97,7 +103,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 quality/dynamic_fonts/use_oversampling=false

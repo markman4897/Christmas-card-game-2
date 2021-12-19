@@ -1,6 +1,6 @@
+class_name Npc
 extends Actor
 
-class_name Npc
 
 signal path_completed
 signal destination_reached
@@ -12,7 +12,7 @@ var disable_collisions_when_moving := false
 
 
 func _ready():
-	Singleton._void = connect("destination_reached", self, "_dest_reached")
+	var _void = connect("destination_reached", self, "_dest_reached")
 
 
 #
@@ -29,13 +29,13 @@ func _dest_reached():
 #
 
 func connect_trigger(node:Node, func_name:String):
-	Singleton._void = $sensor.connect("area_shape_entered", node, func_name)
+	var _void = $sensor.connect("area_shape_entered", node, func_name)
 
 func connect_end_move(node:Node, func_name:String):
-	Singleton._void = self.connect("destination_reached", node, func_name)
+	var _void = self.connect("destination_reached", node, func_name)
 
 func connect_end_path(node:Node, func_name:String):
-	Singleton._void = self.connect("path_completed", node, func_name)
+	var _void = self.connect("path_completed", node, func_name)
 
 func move_to(coords:Vector2):
 	if disable_collisions_when_moving:

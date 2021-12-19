@@ -41,11 +41,6 @@ var player : Node
 var player_movement_disabled := false
 
 
-# literally just used to eat up unwanted return values
-# I know... very stupid execution, but easy to track later if I wanna change it
-var _void
-
-
 func _ready():
 	# Get first screen
 	# HACK: yeah... it is kinda hacky... I'll admit it...
@@ -134,7 +129,7 @@ func control_curtain(direction, connect_signal_to:String="none", node:=Node):
 		root.add_child(Curtain)
 	
 	if connect_signal_to != "none":
-		Singleton._void = Curtain.connect("done", node, connect_signal_to)
+		var _void = Curtain.connect("done", node, connect_signal_to)
 	
 	Curtain.run(direction)
 
@@ -183,7 +178,6 @@ func error(function:String, message:String):
 #####
 
 # Bloopers
-
 
 var chimp_code := []
 var chimp_code_solution := [5,4,3,1,1,0]
