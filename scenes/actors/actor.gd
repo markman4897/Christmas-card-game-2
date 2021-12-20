@@ -58,14 +58,14 @@ func set_idle_animation(animation:String):
 func _do_animations(motion):
 	# trigger animations based on movement
 	match [motion.x != 0, motion.y != 0]:
-		[false,true],[true,true]:
+		[false,true]:
 			if motion.y > 0:
 				if $sprite.animation != "run_down":
 					$sprite.animation = "run_down"
 			else:
 				if $sprite.animation != "run_up":
 					$sprite.animation = "run_up"
-		[true,false]:
+		[true,false],[true,true]:
 			if motion.x > 0:
 				if $sprite.animation != "run_right":
 					$sprite.animation = "run_right"
