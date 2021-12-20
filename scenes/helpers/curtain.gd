@@ -4,7 +4,7 @@ signal done
 
 func _ready():
 	$curtain.visible = false
-	Singleton.player_movement_disabled = true
+	S.player_movement_disabled = true
 
 func run(direction):
 	if direction == "close":
@@ -14,12 +14,12 @@ func run(direction):
 		set_current_animation("up")
 		$curtain.visible = true
 	else:
-		Singleton.error("summon_curtain", "wrong argument passed")
+		S.error("summon_curtain", "wrong argument passed")
 
 func _on_curtain_animation_finished(anim_name):
 	emit_signal("done")
 	
-	Singleton.player_movement_disabled = false
+	S.player_movement_disabled = false
 	
 	if anim_name == "up":
 		self.queue_free()

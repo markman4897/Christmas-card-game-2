@@ -54,8 +54,9 @@ aseprite_executable_path="aseprite"
 
 [autoload]
 
-Singleton="*res://scenes/singletons/Singleton.gd"
-AudioController="*res://scenes/singletons/AudioController.tscn"
+S="*res://scenes/singletons/Singleton.gd"
+AC="*res://scenes/singletons/AudioController.tscn"
+SS="*res://scenes/singletons/SaveSystem.gd"
 
 [display]
 

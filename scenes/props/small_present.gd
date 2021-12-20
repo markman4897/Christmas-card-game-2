@@ -11,14 +11,14 @@ export(bool) var flipped = false setget set_flipped
 #
 
 func _triggered():
-	AudioController.play_sfx("present open")
+	AC.play_sfx("present open")
 	$sprite.frame += 4
 	interactable = false
 	
 	# chimp blooper
-	Singleton.chimp_code.append($sprite.frame)
-	if Singleton.chimp_code == Singleton.chimp_code_solution:
-		Singleton.summon_chimp(self)
+	S.chimp_code.append($sprite.frame)
+	if S.chimp_code == S.chimp_code_solution:
+		S.summon_chimp(self)
 
 func set_frame(new_frame):
 	frame = new_frame

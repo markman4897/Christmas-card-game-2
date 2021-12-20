@@ -61,8 +61,8 @@ func audio_singleton_is_on():
 	# TODO: set from saved settings or this
 	# HACK: i mean... this could just be done in the audio controller I guess...
 	#       lets say its here so all settings are initialised in the same place?
-	AudioController.set_music_volume(0.5)
-	AudioController.set_sfx_volume(0.6)
+	AC.set_music_volume(SS.settings.music_volume)
+	AC.set_sfx_volume(SS.settings.sfx_volume)
 
 
 #
@@ -86,6 +86,9 @@ func change_scene(scene:String):
 	
 	control_curtain("close")
 	yield(Curtain, "done")
+	
+	# save settings
+	SS.file_to_settings()
 	
 	current_scene.free()
 	var new_scene = scenes[scene].instance()
@@ -188,3 +191,14 @@ func summon_chimp(node:Node):
 #####
 ###
 #
+
+
+#
+# Handling quitting the game
+#
+
+func _notification(what):
+	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST
+		or what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST):
+			# save settings before quitting just in case
+			SS.settings_to_file()

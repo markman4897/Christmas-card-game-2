@@ -39,7 +39,7 @@ func _ready() -> void:
 	$objects/moving/elf.movement_disabled = true
 	
 	# load music
-	AudioController.play_bg_music("sad")
+	AC.play_bg_music("sad")
 
 
 #
@@ -48,10 +48,10 @@ func _ready() -> void:
 
 # should be renamed to _red_trigger or something
 func _elf_trigger(_a, _b, _c, _d) -> void:
-	Singleton.summon_textBox(self, elf_text, "_after_text")
+	S.summon_textBox(self, elf_text, "_after_text")
 
 func _door_trigger(_body: Node) -> void:
-	Singleton.change_scene("temple")
+	S.change_scene("temple")
 
 func _on_bg_animation_finished() -> void:
 	if $background/bg.animation == "opening":
@@ -66,5 +66,5 @@ func _after_text(_arg):
 	# set other stuff to advance
 	$logic/doorTrigger.monitoring = true
 	if $background/bg.animation != "opened":
-		AudioController.play_sfx("door creek")
+		AC.play_sfx("door creek")
 		$background/bg.animation = "opening"

@@ -33,7 +33,7 @@ func _ready():
 	# ping Singleton that this scene is operational
 	# HACK: I'm not sure this is 100% sure to happen after Singleton is already loaded
 	#       lets check that out soon yeah?
-	var _void = connect("ready", Singleton, "audio_singleton_is_on")
+	var _void = connect("ready", S, "audio_singleton_is_on")
 
 
 #
@@ -61,10 +61,10 @@ func play_bg_music(song:String):
 	# play it
 	bg_music_tracks[next_track].play()
 	# fade old one out
-	Singleton.summon_tween(bg_music_tracks[current_bg_music_track], "volume_db", bg_music_volume_db,
+	S.summon_tween(bg_music_tracks[current_bg_music_track], "volume_db", bg_music_volume_db,
 			-80.0, bg_music_transition_time, "none", Tween.TRANS_QUART, Tween.EASE_IN)
 	# fade new one in
-	Singleton.summon_tween(bg_music_tracks[next_track], "volume_db", -80.0, bg_music_volume_db,
+	S.summon_tween(bg_music_tracks[next_track], "volume_db", -80.0, bg_music_volume_db,
 			 bg_music_transition_time, "none", Tween.TRANS_QUART, Tween.EASE_OUT)
 	current_bg_music_track = next_track
 
@@ -89,7 +89,7 @@ func get_music_volume(type:="percent"):
 		"db":
 			return bg_music_volume_db
 		_:
-			Singleton.error("get_music_volume", "arg type has a typo")
+			S.error("get_music_volume", "arg type has a typo")
 
 func set_music_volume(volume:float, type:="percent"):
 	var db : float
@@ -103,10 +103,12 @@ func set_music_volume(volume:float, type:="percent"):
 			db = volume
 			percent = db2linear(volume)
 		_:
-			Singleton.error("set_music_volume", "arg type has a typo")
+			S.error("set_music_volume", "arg type has a typo")
 	
 	bg_music_volume_db = db
 	bg_music_volume_p = percent
+	
+	SS.settings.music_volume = percent
 	
 	bg_music_tracks[current_bg_music_track].volume_db = db
 
@@ -117,7 +119,7 @@ func get_sfx_volume(type:="percent"):
 		"db":
 			return sfx_volume_db
 		_:
-			Singleton.error("get_sfx_volume", "arg type has a typo")
+			S.error("get_sfx_volume", "arg type has a typo")
 
 func set_sfx_volume(volume:float, type:="percent"):
 	var db : float
@@ -131,9 +133,11 @@ func set_sfx_volume(volume:float, type:="percent"):
 			db = volume
 			percent = db2linear(volume)
 		_:
-			Singleton.error("set_sfx_volume", "arg type has a typo")
+			S.error("set_sfx_volume", "arg type has a typo")
 	
 	sfx_volume_db = db
 	sfx_volume_p = percent
+	
+	SS.settings.sfx_volume = percent
 	
 	sfx_tracks[current_sfx_track].volume_db = db

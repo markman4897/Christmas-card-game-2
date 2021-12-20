@@ -6,11 +6,11 @@ var location = 1
 
 func _ready():
 	# set current values for sound sliders
-	$container/settings/fields/music/HSlider.value = AudioController.get_music_volume()
-	$container/settings/fields/sfx/HSlider.value = AudioController.get_sfx_volume()
+	$container/settings/fields/music/HSlider.value = AC.get_music_volume()
+	$container/settings/fields/sfx/HSlider.value = AC.get_sfx_volume()
 	
 	# load music
-	AudioController.play_bg_music("happy") # TODO: change this to something new
+	AC.play_bg_music("happy") # TODO: change this to something new
 	
 	$container/menu/buttons/start.grab_focus()
 
@@ -20,11 +20,11 @@ func _ready():
 #
 
 func _on_start_pressed():
-	Singleton.change_scene("enterance")
+	S.change_scene("enterance")
 
 func _slide_screen(new_location):
 	if new_location < 0 or new_location > 2:
-		Singleton.error("_slide_screen", "out of bounds")
+		S.error("_slide_screen", "out of bounds")
 		return
 	
 	location = new_location
@@ -44,7 +44,7 @@ func _slide_screen(new_location):
 			$container/settings/fields/music/HSlider.grab_focus()
 
 func _sfx_changed(value):
-	AudioController.set_sfx_volume(value)
+	AC.set_sfx_volume(value)
 
 func _music_changed(value):
-	AudioController.set_music_volume(value)
+	AC.set_music_volume(value)

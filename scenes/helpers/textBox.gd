@@ -64,7 +64,7 @@ func _ready():
 	
 	option_slots = [$options/one, $options/two, $options/three]
 	
-	Singleton.disable_player_movement(true)
+	S.disable_player_movement(true)
 	
 	main()
 
@@ -135,7 +135,7 @@ func main():
 	
 	# play voice sounds if enabled
 	if sound:
-		AudioController.play_sfx("voice")
+		AC.play_sfx("voice")
 	
 	if dialogue[current]["type"] == "response":
 		$options.visible = false
@@ -168,6 +168,6 @@ func break_animation():
 func end_textbox():
 	emit_signal("end_state", dialogue[current]["return"])
 	
-	Singleton.disable_player_movement(false)
+	S.disable_player_movement(false)
 	
 	queue_free()

@@ -11,3 +11,4 @@ idle_animation_exported = "idle"
 [node name="sprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "idle"
+frame = 1

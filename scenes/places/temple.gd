@@ -63,9 +63,9 @@ func present_opened(_area):
 func _elf_trigger(_a, _b, _c, _d) -> void:
 	# start the text thing
 	if text_mode_2:
-		Singleton.summon_textBox(self, elf_text_2, "after_text")
+		S.summon_textBox(self, elf_text_2, "after_text")
 	else:
-		Singleton.summon_textBox(self, elf_text, "after_text")
+		S.summon_textBox(self, elf_text, "after_text")
 
 
 #
@@ -80,7 +80,7 @@ func after_text(arg):
 		$background/santa_sleigh.play()
 		
 		# change the music (pretty sure this belongs here)
-		AudioController.play_bg_music("happy")
+		AC.play_bg_music("happy")
 
 func loop_santa_sleigh():
 	$background/santa_sleigh.visible = false
