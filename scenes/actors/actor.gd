@@ -14,14 +14,6 @@ var idle_animation : String
 export var sprite_exported : String
 export var idle_animation_exported : String
 
-export var shader_replace_color = {
-	"enabled" : false,
-	"first_original" : Color.black,
-	"first_replacement" : Color.black,
-	"second_original" : Color.black,
-	"second_replacement" : Color.black,
-	}
-
 
 func _ready():
 	# set if exported variables are present
@@ -33,19 +25,6 @@ func _ready():
 		$sprite.frames = sprites[sprite]
 	if idle_animation != "":
 		set_idle_animation(idle_animation)
-	
-	# set shader if set up in exported variables
-	# TODO: figure out how to do this so you can also replace black color
-	if shader_replace_color.enabled:
-			# load in the shader
-			$sprite.material = preload("res://assets/shaders/color_and_shade_replacement.tres")
-			
-			# set shader_params so it works
-			# TODO: maybe add a check to see if they're all initialised somewhere?
-			$sprite.material.set_shader_param("first", shader_replace_color.first_original)
-			$sprite.material.set_shader_param("first_sub", shader_replace_color.first_replacement)
-			$sprite.material.set_shader_param("second", shader_replace_color.second_original)
-			$sprite.material.set_shader_param("second_sub", shader_replace_color.second_replacement)
 
 func _physics_process(delta: float) -> void:
 	var motion = Vector2(0,0)
@@ -96,3 +75,14 @@ func _do_animations(motion):
 		[false,false]:
 			if $sprite.animation != idle_animation:
 				$sprite.animation = idle_animation
+
+func load_shader_replace_color(first:Color, first_sub:Color, second:Color, second_sub:Color):
+	# load in a copy of the shader
+	$sprite.material = preload("res://assets/shaders/color_and_shade_replacement.tres").duplicate()
+	
+	# set shader_params so it works
+	# TODO: maybe add a check to see if they're all initialised before execution?
+	$sprite.material.set_shader_param("first", first)
+	$sprite.material.set_shader_param("first_sub", first_sub)
+	$sprite.material.set_shader_param("second", second)
+	$sprite.material.set_shader_param("second_sub", second_sub)

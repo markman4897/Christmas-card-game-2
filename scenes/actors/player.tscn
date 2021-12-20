@@ -1,23 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/actors/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/aseprite_files/npcs/elf.ase" type="SpriteFrames" id=2]
 [ext_resource path="res://scenes/actors/actor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/shaders/color_and_shade_replacement.tres" type="Material" id=4]
 
 [node name="player" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 idle_animation_exported = "idle"
-shader_replace_color = {
-"enabled": true,
-"first_original": Color( 0.85098, 0.341176, 0.388235, 1 ),
-"first_replacement": Color( 0.6, 0.898039, 0.313726, 1 ),
-"second_original": Color( 0.67451, 0.196078, 0.196078, 1 ),
-"second_replacement": Color( 0.415686, 0.745098, 0.188235, 1 )
-}
 
 [node name="sprite" parent="." index="0"]
-material = ExtResource( 4 )
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2

@@ -1,20 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/actors/npc.gd" type="Script" id=1]
+[ext_resource path="res://scenes/actors/elf.gd" type="Script" id=1]
 [ext_resource path="res://assets/aseprite_files/npcs/elf.ase" type="SpriteFrames" id=2]
 [ext_resource path="res://scenes/actors/actor.tscn" type="PackedScene" id=3]
 
 [node name="elf" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 idle_animation_exported = "idle"
-shader_replace_color = {
-"enabled": false,
-"first_original": Color( 0, 0, 0, 1 ),
-"first_replacement": Color( 0, 0, 0, 1 ),
-"second_original": Color( 0, 0, 0, 1 ),
-"second_replacement": Color( 0, 0, 0, 1 )
-}
+elf_type = 2
 
 [node name="sprite" parent="." index="0"]
 frames = ExtResource( 2 )
 animation = "idle"
+frame = 2

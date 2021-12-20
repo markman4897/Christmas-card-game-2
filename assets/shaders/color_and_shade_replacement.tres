@@ -13,20 +13,21 @@ uniform vec4 second_sub:hint_color;
 void fragment() {
 	vec4 col = texture(TEXTURE, UV);
 	
-    vec4 a4 = abs(col - first);
-    float a = max(max(a4.r, a4.g), a4.b);
+	vec4 a4 = abs(col - first);
+	float a = max(max(a4.r, a4.g), a4.b);
 	
 	vec4 b4 = abs(col - second);
 	float b = max(max(b4.r, b4.g), b4.g);
-    
+	
 	if(a < 0.01) {
-        col = first_sub;
-    }
+		col = first_sub;
+	}
 	
 	if(b < 0.01) {
 		col = second_sub
 	}
-    COLOR = col;
+	
+	COLOR = col;
 }"
 
 [resource]

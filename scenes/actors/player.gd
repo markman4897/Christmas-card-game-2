@@ -2,6 +2,16 @@ extends Actor
 
 const control_deadzone := 3
 
+const FIRST_COLOR = Color("d95763")
+const SECOND_COLOR = Color("ac3232")
+
+
+func _init():
+	load_shader_replace_color(FIRST_COLOR,
+			Color("99e550"),
+			SECOND_COLOR,
+			Color("6abe30"))
+
 
 func _get_motion():
 	# keyboard input
