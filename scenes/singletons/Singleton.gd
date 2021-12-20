@@ -60,8 +60,8 @@ func audio_singleton_is_on():
 	# set volume for music and sfx
 	# HACK: i mean... this could just be done in the audio controller I guess...
 	#       lets say its here so all settings are initialised in the same place?
-	AC.set_music_volume(SS.settings.music_volume)
-	AC.set_sfx_volume(SS.settings.sfx_volume)
+	AC.set_music_volume(SS.music_volume)
+	AC.set_sfx_volume(SS.sfx_volume)
 
 
 #
