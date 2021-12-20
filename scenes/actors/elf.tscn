@@ -7,7 +7,6 @@
 [node name="elf" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 idle_animation_exported = "idle"
-elf_type = 2
 
 [node name="sprite" parent="." index="0"]
 frames = ExtResource( 2 )

@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/clouds_high.ase-e01649bee46504c253bad7f6862b3e65.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/clouds_high.ase"
+dest_files=[ "res://.import/clouds_high.ase-e01649bee46504c253bad7f6862b3e65.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

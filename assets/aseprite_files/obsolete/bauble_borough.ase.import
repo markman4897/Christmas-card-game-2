@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/bauble_borough.ase-40f1243be06c851dd9c374f5d125156f.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/obsolete/bauble_borough.ase"
+dest_files=[ "res://.import/bauble_borough.ase-40f1243be06c851dd9c374f5d125156f.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false
