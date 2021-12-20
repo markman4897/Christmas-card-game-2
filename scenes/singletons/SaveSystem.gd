@@ -9,12 +9,12 @@ var save : SaveFileDefault
 func load_from_file():
 	if ResourceLoader.exists(SAVE_FILE_LOCATION):
 		# TODO: should include validity check
-		save = ResourceLoader.load(SAVE_FILE_LOCATION, "SaveFileDefault")
+		save = ResourceLoader.load(SAVE_FILE_LOCATION)
 	else:
 		save = SaveFileDefault.new()
 
 func save_to_file():
-	ResourceSaver.save(SAVE_FILE_LOCATION, save)
+	var _void = ResourceSaver.save(SAVE_FILE_LOCATION, save)
 
 func delete_settings_file():
 	var dir = Directory.new()
