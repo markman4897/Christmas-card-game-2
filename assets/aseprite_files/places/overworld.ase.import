@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/overworld.ase-3b92686e6aed038ab8a5d17e8a6b7573.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/overworld.ase"
+dest_files=[ "res://.import/overworld.ase-3b92686e6aed038ab8a5d17e8a6b7573.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/sokoban.ase-3fb6d63547e2c5965cb5ae6c9176d123.res"
+
+[deps]
+
+source_file="res://assets/tilemaps/sokoban.ase"
+dest_files=[ "res://.import/sokoban.ase-3fb6d63547e2c5965cb5ae6c9176d123.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

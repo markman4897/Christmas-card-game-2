@@ -48,3 +48,6 @@ func _sfx_changed(value):
 
 func _music_changed(value):
 	AC.set_music_volume(value)
+
+func _on_delete_save_pressed():
+	SS.delete_settings_file()

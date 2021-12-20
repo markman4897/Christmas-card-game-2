@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/hub_fog.ase-4a81bebcab25dacbab19f424ee9a303f.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/hub_fog.ase"
+dest_files=[ "res://.import/hub_fog.ase-4a81bebcab25dacbab19f424ee9a303f.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

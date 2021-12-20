@@ -87,7 +87,7 @@ func change_scene(scene:String):
 	yield(Curtain, "done")
 	
 	# save settings
-	SS.file_to_settings()
+	SS.settings_to_file()
 	
 	current_scene.free()
 	var new_scene = scenes[scene].instance()
@@ -190,14 +190,3 @@ func summon_chimp(node:Node):
 #####
 ###
 #
-
-
-#
-# Handling quitting the game
-#
-
-func _notification(what):
-	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST
-		or what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST):
-			# save settings before quitting just in case
-			SS.settings_to_file()
