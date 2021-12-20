@@ -49,19 +49,12 @@ func _ready():
 	#       ... maybe next time I'll get it right from the start...
 	current_scene = root.get_node("menu")
 	
-	# TODO: set stuff from saved settings
-
-
-#
-# Signals
-#
-
-func audio_singleton_is_on():
-	# set volume for music and sfx
-	# HACK: i mean... this could just be done in the audio controller I guess...
-	#       lets say its here so all settings are initialised in the same place?
-	AC.set_music_volume(SS.music_volume)
-	AC.set_sfx_volume(SS.sfx_volume)
+	# load save file
+	SS.load_from_file()
+	
+	# set variables from saved
+	AC.set_music_volume(SS.save.music_volume)
+	AC.set_sfx_volume(SS.save.sfx_volume)
 
 
 #
@@ -87,7 +80,7 @@ func change_scene(scene:String):
 	yield(Curtain, "done")
 	
 	# save settings
-	SS.settings_to_file()
+	SS.save_to_file()
 	
 	current_scene.free()
 	var new_scene = scenes[scene].instance()

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/actors/npc.gd"
 }, {
+"base": "Resource",
+"class": "SaveFileDefault",
+"language": "GDScript",
+"path": "res://scenes/singletons/save_file_default.gd"
+}, {
 "base": "StaticBody2D",
 "class": "SolidObject",
 "language": "GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Actor": "",
 "BasePlace": "",
 "Npc": "",
+"SaveFileDefault": "",
 "SolidObject": "",
 "TriggerObject": ""
 }
@@ -54,9 +60,9 @@ aseprite_executable_path="aseprite"
 
 [autoload]
 
-S="*res://scenes/singletons/Singleton.gd"
 AC="*res://scenes/singletons/AudioController.tscn"
 SS="*res://scenes/singletons/SaveSystem.gd"
+S="*res://scenes/singletons/Singleton.gd"
 
 [display]
 

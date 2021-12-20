@@ -29,17 +29,9 @@ var sfx_volume_db := 0.0
 var sfx_volume_p := 1.0
 
 
-func _ready():
-	# ping Singleton that this scene is operational
-	# HACK: I'm not sure this is 100% sure to happen after Singleton is already loaded
-	#       lets check that out soon yeah?
-	var _void = connect("ready", S, "audio_singleton_is_on")
-
-
 #
 # Functions
 #
-
 
 func get_next(array:Array, pointer:int):
 	var size = array.size()-1
@@ -108,7 +100,7 @@ func set_music_volume(volume:float, type:="percent"):
 	bg_music_volume_db = db
 	bg_music_volume_p = percent
 	
-	SS.settings.music_volume = percent
+	SS.save.music_volume = percent
 	
 	bg_music_tracks[current_bg_music_track].volume_db = db
 
@@ -138,6 +130,6 @@ func set_sfx_volume(volume:float, type:="percent"):
 	sfx_volume_db = db
 	sfx_volume_p = percent
 	
-	SS.settings.sfx_volume = percent
+	SS.save.sfx_volume = percent
 	
 	sfx_tracks[current_sfx_track].volume_db = db
