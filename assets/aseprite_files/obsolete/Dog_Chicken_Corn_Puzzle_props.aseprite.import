@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/Dog_Chicken_Corn_Puzzle_props.aseprite-d7e45f399b72814003a1e0b79abf6ac3.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/obsolete/Dog_Chicken_Corn_Puzzle_props.aseprite"
+dest_files=[ "res://.import/Dog_Chicken_Corn_Puzzle_props.aseprite-d7e45f399b72814003a1e0b79abf6ac3.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false
