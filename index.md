@@ -1,7 +1,1 @@
----
-title: Christmas Card Game 2
----
-
-## Christmas Card Game 2
-
-<iframe src="christmas-card-game-2.html" width="512" height="512" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr" allowfullscreen="true" referrerpolicy="same-origin" ></iframe>
+<iframe src="christmas-card-game-2.html" width="512" height="512" allow="autoplay; fullscreen *; gamepad" allowfullscreen="true" referrerpolicy="same-origin" style="width:95%;aspect-ratio:1/1;background-color: #7c334f;border: 2px solid #CD596A;outline: 4px solid #7c334f;padding: 4px;margin: 0 auto"></iframe>
