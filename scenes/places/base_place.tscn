@@ -28,5 +28,3 @@ polygon = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 [node name="moving" type="Node2D" parent="objects"]
 
 [node name="foreground" type="Node2D" parent="."]
-
-[connection signal="animation_finished" from="background/bg" to="." method="_on_bg_animation_finished"]

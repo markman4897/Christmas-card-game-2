@@ -1,0 +1,235 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/aseprite_files/places/night_stars.ase" type="SpriteFrames" id=2]
+[ext_resource path="res://scenes/places/overworld/overworld.gd" type="Script" id=3]
+[ext_resource path="res://assets/aseprite_files/places/overworld.ase" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/spritesheets/player_head.png" type="Texture" id=5]
+[ext_resource path="res://scenes/places/overworld/position.gd" type="Script" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 63, 109, 0, 0, 0, 0, 88, 109, 0, 0, 0, 0, 88, 100 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 95, 109, 0, 0, 0, 0, 60, 110, 0, 0, 0, 0, 60, 105 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 44, 129, 0, 0, 0, 0, 44, 114, 0, 0, 0, 0, 63, 87, 0, 0, 0, 0, 75, 87 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 75, 124, 0, 0, 0, 0, 75, 110, 0, 0, 0, 0, 59, 87, 0, 0, 0, 0, 46, 87 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 75, 124, 0, 0, 0, 0, 75, 107 )
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ) ]
+}
+
+[node name="overworld" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="stars" type="AnimatedSprite" parent="background" index="0"]
+frames = ExtResource( 2 )
+frame = 2
+playing = true
+centered = false
+
+[node name="bg" parent="background" index="1"]
+frames = ExtResource( 4 )
+
+[node name="paths" type="Node2D" parent="logic" index="1"]
+
+[node name="hub-tinsel" type="Path2D" parent="logic/paths" index="0"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/hub-tinsel" index="0"]
+position = Vector2( 63, 109 )
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/hub-tinsel/PathFollow2D" index="0"]
+remote_path = NodePath("../../../../../objects/moving/player")
+update_rotation = false
+update_scale = false
+
+[node name="hub-bauble" type="Path2D" parent="logic/paths" index="1"]
+position = Vector2( -32, 0 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/hub-bauble" index="0"]
+position = Vector2( 95, 109 )
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/hub-bauble/PathFollow2D" index="0"]
+remote_path = NodePath("../../../../../objects/moving/player")
+update_rotation = false
+update_scale = false
+
+[node name="bauble-star" type="Path2D" parent="logic/paths" index="2"]
+position = Vector2( -16, -24 )
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/bauble-star" index="0"]
+position = Vector2( 44, 126 )
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/bauble-star/PathFollow2D" index="0"]
+remote_path = NodePath("../../../../../objects/moving/player")
+update_rotation = false
+update_scale = false
+
+[node name="tinsel-star" type="Path2D" parent="logic/paths" index="3"]
+position = Vector2( 13, -24 )
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/tinsel-star" index="0"]
+position = Vector2( 75, 120 )
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/tinsel-star/PathFollow2D" index="0"]
+remote_path = NodePath("../../../../../objects/moving/player")
+update_rotation = false
+update_scale = false
+
+[node name="star-temple" type="Path2D" parent="logic/paths" index="4"]
+position = Vector2( -16, -61 )
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/star-temple" index="0"]
+position = Vector2( 75, 107 )
+offset = 16.9984
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/star-temple/PathFollow2D" index="0"]
+remote_path = NodePath("../../../../../objects/moving/player")
+update_rotation = false
+update_scale = false
+
+[node name="points" type="Node2D" parent="logic" index="2"]
+
+[node name="hub" type="Position2D" parent="logic/points" index="0"]
+position = Vector2( 63, 109 )
+script = ExtResource( 6 )
+left = true
+l_destination = NodePath("../bauble_borough")
+l_path = NodePath("../../paths/hub-bauble")
+l_direction = true
+right = true
+r_destination = NodePath("../tinsel_township")
+r_path = NodePath("../../paths/hub-tinsel")
+r_direction = true
+
+[node name="bauble_borough" type="Position2D" parent="logic/points" index="1"]
+position = Vector2( 28, 102 )
+script = ExtResource( 6 )
+place = "bauble_borough"
+up = true
+u_destination = NodePath("../star_city")
+u_path = NodePath("../../paths/bauble-star")
+u_direction = true
+down = true
+d_destination = NodePath("../hub")
+d_path = NodePath("../../paths/hub-bauble")
+
+[node name="tinsel_township" type="Position2D" parent="logic/points" index="2"]
+position = Vector2( 88, 96 )
+script = ExtResource( 6 )
+place = "tinsel_township"
+up = true
+u_destination = NodePath("../star_city")
+u_path = NodePath("../../paths/tinsel-star")
+u_direction = true
+down = true
+d_destination = NodePath("../hub")
+d_path = NodePath("../../paths/hub-tinsel")
+
+[node name="star_city" type="Position2D" parent="logic/points" index="3"]
+position = Vector2( 59, 63 )
+script = ExtResource( 6 )
+place = "star_city"
+up = true
+u_destination = NodePath("../temple")
+u_path = NodePath("../../paths/star-temple")
+u_direction = true
+left = true
+l_destination = NodePath("../bauble_borough")
+l_path = NodePath("../../paths/bauble-star")
+right = true
+r_destination = NodePath("../tinsel_township")
+r_path = NodePath("../../paths/tinsel-star")
+
+[node name="temple" type="Position2D" parent="logic/points" index="4"]
+position = Vector2( 59, 63 )
+script = ExtResource( 6 )
+place = "temple_enterance"
+down = true
+d_destination = NodePath("../star_city")
+d_path = NodePath("../../paths/star-temple")
+left = true
+l_destination = NodePath("../bauble_borough")
+l_path = NodePath("../../paths/bauble-star")
+right = true
+r_destination = NodePath("../tinsel_township")
+r_path = NodePath("../../paths/tinsel-star")
+
+[node name="player" type="Sprite" parent="objects/moving" index="0"]
+position = Vector2( 63, 109 )
+texture = ExtResource( 5 )
+
+[node name="idle" type="AnimationPlayer" parent="objects/moving/player" index="0"]
+autoplay = "idle"
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 6 )

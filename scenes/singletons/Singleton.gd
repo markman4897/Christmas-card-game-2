@@ -9,14 +9,18 @@ extends Node
 const tween := preload("res://scenes/singletons/tween.tscn")
 
 const scenes := {
-	"menu": preload("res://scenes/places/menu.tscn"),
-	"enterance": preload("res://scenes/places/enterance.tscn"),
-	"temple": preload("res://scenes/places/temple.tscn")
+	"menu": preload("res://scenes/helpers/menu/menu.tscn"),
+	"overworld": preload("res://scenes/places/overworld/overworld.tscn"),
+	"temple_enterance": preload("res://scenes/places/temple_enterance/temple_enterance.tscn"),
+	"temple": preload("res://scenes/places/temple/temple.tscn"),
+	"bauble_borough": preload("res://scenes/places/bauble_borough/bauble_borough.tscn"),
+	"tinsel_township": preload("res://scenes/places/tinsel_township/tinsel_township.tscn"),
+	"star_city": preload("res://scenes/places/star_city/star_city.tscn"),
 }
 
 # preload helpers, if there will be more than 2 it should be a const like scenes
-const textBox := preload("res://scenes/helpers/textBox.tscn")
-const curtain := preload("res://scenes/helpers/curtain.tscn")
+const textBox := preload("res://scenes/helpers/text_box/text_box.tscn")
+const curtain := preload("res://scenes/helpers/curtain/curtain.tscn")
 
 onready var root := get_tree().get_root()
 var Curtain : Node

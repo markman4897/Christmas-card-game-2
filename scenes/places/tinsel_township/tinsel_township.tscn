@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/places/tinsel_township/tinsel_township.gd" type="Script" id=2]
+[ext_resource path="res://assets/aseprite_files/places/tinsel_township.ase" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/aseprite_files/places/night_stars.ase" type="SpriteFrames" id=4]
+
+[node name="tinsel_township" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="stars" type="AnimatedSprite" parent="background" index="0"]
+frames = ExtResource( 4 )
+playing = true
+centered = false
+
+[node name="bg" parent="background" index="1"]
+frames = ExtResource( 3 )
