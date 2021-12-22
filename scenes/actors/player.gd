@@ -16,6 +16,7 @@ func _init():
 func _get_motion():
 	# keyboard input
 	var motion = Vector2(0,0)
+	
 	motion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	motion.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	

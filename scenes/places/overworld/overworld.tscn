@@ -85,6 +85,7 @@ centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 4 )
+frame = 1
 
 [node name="paths" type="Node2D" parent="logic" index="1"]
 
@@ -120,7 +121,7 @@ position = Vector2( -16, -24 )
 curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/bauble-star" index="0"]
-position = Vector2( 44, 126 )
+position = Vector2( 44, 129 )
 rotate = false
 loop = false
 
@@ -134,7 +135,7 @@ position = Vector2( 13, -24 )
 curve = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/tinsel-star" index="0"]
-position = Vector2( 75, 120 )
+position = Vector2( 75, 124 )
 rotate = false
 loop = false
 
@@ -163,11 +164,11 @@ update_scale = false
 [node name="hub" type="Position2D" parent="logic/points" index="0"]
 position = Vector2( 63, 109 )
 script = ExtResource( 6 )
-left = true
+left = 2
 l_destination = NodePath("../bauble_borough")
 l_path = NodePath("../../paths/hub-bauble")
 l_direction = true
-right = true
+right = 2
 r_destination = NodePath("../tinsel_township")
 r_path = NodePath("../../paths/hub-tinsel")
 r_direction = true
@@ -176,11 +177,11 @@ r_direction = true
 position = Vector2( 28, 102 )
 script = ExtResource( 6 )
 place = "bauble_borough"
-up = true
+up = 2
 u_destination = NodePath("../star_city")
 u_path = NodePath("../../paths/bauble-star")
 u_direction = true
-down = true
+down = 2
 d_destination = NodePath("../hub")
 d_path = NodePath("../../paths/hub-bauble")
 
@@ -188,11 +189,11 @@ d_path = NodePath("../../paths/hub-bauble")
 position = Vector2( 88, 96 )
 script = ExtResource( 6 )
 place = "tinsel_township"
-up = true
+up = 2
 u_destination = NodePath("../star_city")
 u_path = NodePath("../../paths/tinsel-star")
 u_direction = true
-down = true
+down = 2
 d_destination = NodePath("../hub")
 d_path = NodePath("../../paths/hub-tinsel")
 
@@ -200,14 +201,14 @@ d_path = NodePath("../../paths/hub-tinsel")
 position = Vector2( 59, 63 )
 script = ExtResource( 6 )
 place = "star_city"
-up = true
+up = 1
 u_destination = NodePath("../temple")
 u_path = NodePath("../../paths/star-temple")
 u_direction = true
-left = true
+left = 2
 l_destination = NodePath("../bauble_borough")
 l_path = NodePath("../../paths/bauble-star")
-right = true
+right = 2
 r_destination = NodePath("../tinsel_township")
 r_path = NodePath("../../paths/tinsel-star")
 
@@ -215,13 +216,11 @@ r_path = NodePath("../../paths/tinsel-star")
 position = Vector2( 59, 63 )
 script = ExtResource( 6 )
 place = "temple_enterance"
-down = true
+down = 2
 d_destination = NodePath("../star_city")
 d_path = NodePath("../../paths/star-temple")
-left = true
 l_destination = NodePath("../bauble_borough")
 l_path = NodePath("../../paths/bauble-star")
-right = true
 r_destination = NodePath("../tinsel_township")
 r_path = NodePath("../../paths/tinsel-star")
 

@@ -21,6 +21,7 @@ const scenes := {
 # preload helpers, if there will be more than 2 it should be a const like scenes
 const textBox := preload("res://scenes/helpers/text_box/text_box.tscn")
 const curtain := preload("res://scenes/helpers/curtain/curtain.tscn")
+const letterboxing := preload("res://scenes/helpers/letterboxing/letterboxing.tscn")
 
 onready var root := get_tree().get_root()
 var Curtain : Node
@@ -65,7 +66,9 @@ func _ready():
 # Summon functions
 #
 
-func change_scene(scene:String):
+func change_scene(scene:String, curtain:=true):
+	var is_curtain_present = root.get_node_or_null("curtain")
+	
 	# Disable input while switching scenes
 	# FIXME: this only works on menu screen?! what?! (function below)
 	#        aha... this only works for control nodes?
@@ -80,13 +83,15 @@ func change_scene(scene:String):
 	#       want to pause everything necessarily...
 	disable_player_movement(true)
 	
-	control_curtain("close")
-	yield(Curtain, "done")
+	if curtain and !is_curtain_present:
+		control_curtain("close")
+		yield(Curtain, "done")
+		is_curtain_present = true
 	
 	# save settings
 	SS.save_to_file()
 	
-	current_scene.free()
+	current_scene.queue_free()
 	var new_scene = scenes[scene].instance()
 	root.add_child(new_scene)
 	current_scene = new_scene
@@ -98,7 +103,8 @@ func change_scene(scene:String):
 	# HACK: until I fix the above line to work everywhere -.-
 	disable_player_movement(false)
 	
-	control_curtain("open")
+	if curtain:
+		control_curtain("open")
 
 func summon_textBox(node:Node, dialogue:Dictionary={}, connect_end_signal_to:String="none",
 		connect_hook_signal_to:String="none", sound:bool=true):
@@ -121,7 +127,7 @@ func summon_textBox(node:Node, dialogue:Dictionary={}, connect_end_signal_to:Str
 	return textBoxInstance
 
 # this just got ugly...
-func control_curtain(direction, connect_signal_to:String="none", node:=Node):
+func control_curtain(direction:String, connect_signal_to:String="none", node:=Node):
 	# check if we want to close the curtain and if there is a curtain already present
 	if direction == "close" and root.get_node_or_null("curtain") == null:
 		Curtain = curtain.instance()
@@ -131,6 +137,23 @@ func control_curtain(direction, connect_signal_to:String="none", node:=Node):
 		var _void = Curtain.connect("done", node, connect_signal_to)
 	
 	Curtain.run(direction)
+
+func control_letterboxing(state:bool):
+#	var is_letterboxing_present := root.get_node_or_null("letterboxing")
+#	print([state, is_letterboxing_present])
+#	match [state, is_letterboxing_present]:
+#		[true, null]:
+#			print("adding")
+#			root.add_child(letterboxing.instance())
+#		[false, Node]:
+#			print("removing")
+#			is_letterboxing_present.queue_free()
+	var is_letterboxing_present := root.get_node_or_null("letterboxing")
+	
+	if state and !is_letterboxing_present:
+		root.add_child(letterboxing.instance())
+	elif !state and is_letterboxing_present:
+		is_letterboxing_present.queue_free()
 
 func summon_tween(node:Node, property:String, value_start, value_end, duration:float,
 		callback:="none", trans_val:=Tween.TRANS_LINEAR, ease_val:=Tween.EASE_IN_OUT):

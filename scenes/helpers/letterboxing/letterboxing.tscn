@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="letterboxing" type="Node2D"]
+
+[node name="top" type="ColorRect" parent="."]
+margin_right = 128.0
+margin_bottom = 8.0
+color = Color( 0.862745, 0.894118, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bottom" type="ColorRect" parent="."]
+margin_top = 120.0
+margin_right = 128.0
+margin_bottom = 128.0
+color = Color( 0.862745, 0.894118, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

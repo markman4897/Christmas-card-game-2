@@ -42,6 +42,13 @@ func _ready() -> void:
 	AC.play_bg_music("sad")
 
 
+
+var test = true
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		S.control_letterboxing(test)
+		test = !test
 #
 # SIGNAL HANDLING
 #

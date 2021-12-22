@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/The_three_town_keys.aseprite-fcb300ef70ae8f7fb4493802d3e90e04.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/obsolete/The_three_town_keys.aseprite"
+dest_files=[ "res://.import/The_three_town_keys.aseprite-fcb300ef70ae8f7fb4493802d3e90e04.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

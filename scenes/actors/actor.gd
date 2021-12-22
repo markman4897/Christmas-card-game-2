@@ -37,9 +37,6 @@ func _get_motion():
 	# just a placeholder for the actual function
 	return Vector2(0,0)
 
-#func _process(_delta: float) -> void:
-#	self.set_z_index(int(self.position.y))
-
 
 #
 # Functions to be used from outside
