@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/temple_entrance.ase-29df42ce8f6370b74c76a5317e7918b7.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/temple_enterance/temple_entrance.ase"
+dest_files=[ "res://.import/temple_entrance.ase-29df42ce8f6370b74c76a5317e7918b7.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

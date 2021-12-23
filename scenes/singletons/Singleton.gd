@@ -9,13 +9,31 @@ extends Node
 const tween := preload("res://scenes/singletons/tween.tscn")
 
 const scenes := {
-	"menu": preload("res://scenes/helpers/menu/menu.tscn"),
-	"overworld": preload("res://scenes/places/overworld/overworld.tscn"),
-	"temple_enterance": preload("res://scenes/places/temple_enterance/temple_enterance.tscn"),
-	"temple": preload("res://scenes/places/temple/temple.tscn"),
-	"bauble_borough": preload("res://scenes/places/bauble_borough/bauble_borough.tscn"),
-	"tinsel_township": preload("res://scenes/places/tinsel_township/tinsel_township.tscn"),
-	"star_city": preload("res://scenes/places/star_city/star_city.tscn"),
+	"menu": [
+		preload("res://scenes/helpers/menu/menu.tscn"),
+	],
+	"overworld": [
+		preload("res://scenes/places/overworld/overworld.tscn"),
+	],
+	"temple_enterance": [
+		preload("res://scenes/places/temple_enterance/temple_enterance_0.tscn"),
+		preload("res://scenes/places/temple_enterance/temple_enterance_1.tscn"),
+	],
+	"temple_prison": [
+		preload("res://scenes/places/temple_prison/temple_prison_0.tscn"),
+	],
+	"temple": [
+		preload("res://scenes/places/temple/temple.tscn"),
+	],
+	"bauble_borough": [
+		preload("res://scenes/places/bauble_borough/bauble_borough.tscn"),
+	],
+	"tinsel_township": [
+		preload("res://scenes/places/tinsel_township/tinsel_township.tscn"),
+	],
+	"star_city": [
+		preload("res://scenes/places/star_city/star_city.tscn"),
+	],
 }
 
 # preload helpers, if there will be more than 2 it should be a const like scenes
@@ -92,7 +110,7 @@ func change_scene(scene:String, curtain:=true):
 	SS.save_to_file()
 	
 	current_scene.queue_free()
-	var new_scene = scenes[scene].instance()
+	var new_scene = scenes[scene][SS.save.locations_state[scene]].instance()
 	root.add_child(new_scene)
 	current_scene = new_scene
 	

@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/grabber_disabled.png-8dac6998646998840a76c04f8ab08476.image"
+
+[deps]
+
+source_file="res://assets/sprites/ui_theme/grabber_disabled.png"
+dest_files=[ "res://.import/grabber_disabled.png-8dac6998646998840a76c04f8ab08476.image" ]
+
+[params]
+

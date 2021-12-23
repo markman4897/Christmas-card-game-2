@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/places/bauble_borough/bauble_borough.gd" type="Script" id=2]
-[ext_resource path="res://assets/aseprite_files/places/bauble_borough.ase" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/aseprite_files/places/bauble_borough/bauble_borough.ase" type="SpriteFrames" id=3]
 [ext_resource path="res://assets/aseprite_files/places/night_stars.ase" type="SpriteFrames" id=4]
 
 [node name="bauble_borough" instance=ExtResource( 1 )]

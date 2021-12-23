@@ -16,10 +16,11 @@ func load_from_file():
 func save_to_file():
 	var _void = ResourceSaver.save(SAVE_FILE_LOCATION, save)
 
-func delete_settings_file():
+func clear_settings_file():
 	var dir = Directory.new()
 	if dir.file_exists(SAVE_FILE_LOCATION):
 		dir.remove(SAVE_FILE_LOCATION)
+		load_from_file()
 
 #
 # Handling quitting the game

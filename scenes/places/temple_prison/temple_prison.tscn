@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/places/temple_prison/temple_prison.gd" type="Script" id=2]
+[ext_resource path="res://assets/aseprite_files/places/temple_prison/temple_prison_bars.ase" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/aseprite_files/places/temple_prison/temple_prison.ase" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/aseprite_files/places/temple_prison/temple_prison_background.ase" type="SpriteFrames" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
+
+[node name="temple_prison" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="bg" parent="background" index="0"]
+frames = ExtResource( 5 )
+
+[node name="floor_and_walls" type="AnimatedSprite" parent="background" index="1"]
+frames = ExtResource( 4 )
+centered = false
+
+[node name="outer" parent="logic/border" index="0"]
+polygon = PoolVector2Array( 0, 79, 128, 79, 128, 128, 0, 128 )
+
+[node name="door" type="Position2D" parent="logic/entry_points" index="0"]
+position = Vector2( 116, 107 )
+
+[node name="secret_enterance" type="Position2D" parent="logic/entry_points" index="1"]
+position = Vector2( 65, 127 )
+
+[node name="prison" type="Position2D" parent="logic/npc_positions" index="0"]
+position = Vector2( 64, 78 )
+
+[node name="door_trigger" type="Area2D" parent="logic/portals" index="0"]
+position = Vector2( 127, 97 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="logic/portals/door_trigger" index="0"]
+shape = SubResource( 1 )
+
+[node name="back_enterance_trigger" type="Area2D" parent="logic/portals" index="1"]
+position = Vector2( 127, 97 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="logic/portals/back_enterance_trigger" index="0"]
+shape = SubResource( 1 )
+
+[node name="prison_bars" type="AnimatedSprite" parent="objects/static" index="0"]
+position = Vector2( 64, 80 )
+frames = ExtResource( 3 )
+centered = false
+offset = Vector2( -16, -38 )
+
+[connection signal="body_entered" from="logic/portals/door_trigger" to="." method="_door_trigger"]
+[connection signal="body_entered" from="logic/portals/back_enterance_trigger" to="." method="_back_enterance_trigger"]

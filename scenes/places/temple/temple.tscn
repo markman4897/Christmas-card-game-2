@@ -6,8 +6,8 @@
 [ext_resource path="res://scenes/actors/elf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/props/present.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/props/small_present.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/aseprite_files/places/temple.ase" type="SpriteFrames" id=7]
-[ext_resource path="res://assets/aseprite_files/places/santa_sleigh.ase" type="SpriteFrames" id=8]
+[ext_resource path="res://assets/aseprite_files/places/temple/temple.ase" type="SpriteFrames" id=7]
+[ext_resource path="res://assets/aseprite_files/places/temple/santa_sleigh.ase" type="SpriteFrames" id=8]
 
 [node name="enterance" instance=ExtResource( 3 )]
 script = ExtResource( 2 )

@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/grabber.png-c20c446054f352b16681754959a9d6d2.image"
+
+[deps]
+
+source_file="res://assets/sprites/ui_theme/grabber.png"
+dest_files=[ "res://.import/grabber.png-c20c446054f352b16681754959a9d6d2.image" ]
+
+[params]
+

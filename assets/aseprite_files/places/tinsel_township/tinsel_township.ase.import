@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/tinsel_township.ase-46417a34d9e1c2416595e492df5601e6.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/tinsel_township/tinsel_township.ase"
+dest_files=[ "res://.import/tinsel_township.ase-46417a34d9e1c2416595e492df5601e6.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

@@ -1,6 +1,8 @@
 class_name TriggerObject
 extends Area2D
 
+# sets up controlled trigger
+
 
 var interactable = true
 

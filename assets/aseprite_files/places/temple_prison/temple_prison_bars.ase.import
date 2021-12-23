@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/temple_prison_bars.ase-a3db935c273dfd7f3d2ee473e2b74e44.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/temple_prison/temple_prison_bars.ase"
+dest_files=[ "res://.import/temple_prison_bars.ase-a3db935c273dfd7f3d2ee473e2b74e44.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

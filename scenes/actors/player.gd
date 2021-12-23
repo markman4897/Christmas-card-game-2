@@ -1,5 +1,8 @@
 extends Actor
 
+# adds player controlled movement
+
+
 const control_deadzone := 3
 
 const FIRST_COLOR = Color("d95763")

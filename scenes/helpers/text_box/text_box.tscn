@@ -3,8 +3,8 @@
 [ext_resource path="res://assets/fonts/small_pixel_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/spritesheets/textbox_9patch.png" type="Texture" id=2]
 [ext_resource path="res://scenes/helpers/text_box/text_box.gd" type="Script" id=3]
-[ext_resource path="res://assets/spritesheets/flaoting_star.png" type="Texture" id=4]
-[ext_resource path="res://assets/spritesheets/dialogue_cursor.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/ui_theme/flaoting_star.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ui_theme/dialogue_cursor.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=2]
 length = 0.001

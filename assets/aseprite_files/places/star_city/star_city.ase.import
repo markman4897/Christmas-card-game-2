@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/star_city.ase-f3792c7d4bc1f3df9ee26a26406b8d65.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/star_city/star_city.ase"
+dest_files=[ "res://.import/star_city.ase-f3792c7d4bc1f3df9ee26a26406b8d65.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

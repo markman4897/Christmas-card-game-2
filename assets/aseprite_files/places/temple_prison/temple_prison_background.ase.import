@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/temple_prison_background.ase-096b9a1873841456df3513825b312e23.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/temple_prison/temple_prison_background.ase"
+dest_files=[ "res://.import/temple_prison_background.ase-096b9a1873841456df3513825b312e23.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

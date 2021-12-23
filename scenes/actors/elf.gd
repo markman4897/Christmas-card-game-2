@@ -1,5 +1,7 @@
 extends Npc
 
+# adds shader for changing color and exports enum for ease of use
+
 
 const FIRST_COLOR = Color("d95763")
 const SECOND_COLOR = Color("ac3232")

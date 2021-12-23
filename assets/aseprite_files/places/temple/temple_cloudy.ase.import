@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/temple_cloudy.ase-8743a6a43ca8ffce26a07858ff1b1abc.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/temple/temple_cloudy.ase"
+dest_files=[ "res://.import/temple_cloudy.ase-8743a6a43ca8ffce26a07858ff1b1abc.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

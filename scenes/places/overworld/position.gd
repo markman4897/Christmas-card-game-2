@@ -1,5 +1,7 @@
 extends Position2D
 
+# exports needed variables for ease of use in editor
+
 
 enum PATH {NONE, LOCKED, UNLOCKED}
 

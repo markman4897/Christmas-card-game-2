@@ -34,6 +34,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/props/solid_object.gd"
 }, {
+"base": "BasePlace",
+"class": "TempleEnterance",
+"language": "GDScript",
+"path": "res://scenes/places/temple_enterance/temple_enterance.gd"
+}, {
+"base": "Node2D",
+"class": "TemplePrison",
+"language": "GDScript",
+"path": "res://scenes/places/temple_prison/temple_prison.gd"
+}, {
 "base": "Area2D",
 "class": "TriggerObject",
 "language": "GDScript",
@@ -45,6 +55,8 @@ _global_script_class_icons={
 "Npc": "",
 "SaveFileDefault": "",
 "SolidObject": "",
+"TempleEnterance": "",
+"TemplePrison": "",
 "TriggerObject": ""
 }
 

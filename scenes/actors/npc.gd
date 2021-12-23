@@ -1,6 +1,8 @@
 class_name Npc
 extends Actor
 
+# adds guided movement
+
 
 signal path_completed
 signal destination_reached
@@ -47,6 +49,8 @@ func move_path(path:Array):
 	for i in path:
 		move_to(i)
 		yield(self, "destination_reached")
+		if disable_collisions_when_moving:
+			$body.set_deferred("disabled", false)
 	
 	emit_signal("path_completed")
 
