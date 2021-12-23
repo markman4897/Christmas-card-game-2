@@ -60,6 +60,9 @@ func toggle_movement(state:bool):
 func toggle_is_actor(state:bool):
 	is_actor = state
 
+func toggle_flip_h(state:bool):
+	$sprite.flip_h = state
+
 
 #
 # Functions

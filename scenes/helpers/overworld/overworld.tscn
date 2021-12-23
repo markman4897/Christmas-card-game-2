@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/aseprite_files/places/night_stars.ase" type="SpriteFrames" id=2]
+[ext_resource path="res://assets/aseprite_files/places/overworld/overworld.ase" type="SpriteFrames" id=4]
+
+[node name="overworld" instance=ExtResource( 1 )]
+script = null
+
+[node name="stars" type="AnimatedSprite" parent="background" index="0"]
+frames = ExtResource( 2 )
+frame = 1
+playing = true
+centered = false
+
+[node name="bg" parent="background" index="1"]
+frames = ExtResource( 4 )

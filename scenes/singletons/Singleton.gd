@@ -13,7 +13,8 @@ const scenes := {
 		preload("res://scenes/helpers/menu/menu.tscn"),
 	],
 	"overworld": [
-		preload("res://scenes/places/overworld/overworld.tscn"),
+		preload("res://scenes/helpers/overworld/overworld_0.tscn"),
+		preload("res://scenes/helpers/overworld/overworld_1.tscn"),
 	],
 	"temple_enterance": [
 		preload("res://scenes/places/temple_enterance/temple_enterance_0.tscn"),
@@ -23,7 +24,7 @@ const scenes := {
 		preload("res://scenes/places/temple_prison/temple_prison_0.tscn"),
 	],
 	"temple": [
-		preload("res://scenes/places/temple/temple.tscn"),
+		preload("res://scenes/places/temple/temple_0.tscn"),
 	],
 	"bauble_borough": [
 		preload("res://scenes/places/bauble_borough/bauble_borough.tscn"),
@@ -209,7 +210,7 @@ func disable_input(state:bool):
 	root.set_disable_input(state)
 
 func disable_player_movement(state:bool):
-	if player != null:
+	if player != null and "movement_disabled" in player:
 		player.movement_disabled = state
 
 func error(function:String, message:String):

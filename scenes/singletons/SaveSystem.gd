@@ -20,6 +20,7 @@ func clear_settings_file():
 	var dir = Directory.new()
 	if dir.file_exists(SAVE_FILE_LOCATION):
 		dir.remove(SAVE_FILE_LOCATION)
+		save = null
 		load_from_file()
 
 #

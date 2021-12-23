@@ -1,21 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/actors/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/places/temple/temple.gd" type="Script" id=2]
 [ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/actors/elf.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/props/present.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/props/small_present.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/aseprite_files/places/temple/temple.ase" type="SpriteFrames" id=7]
 [ext_resource path="res://assets/aseprite_files/places/temple/santa_sleigh.ase" type="SpriteFrames" id=8]
 
-[node name="enterance" instance=ExtResource( 3 )]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
+
+[node name="temple" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
 
 [node name="bg" parent="background" index="0"]
 frames = ExtResource( 7 )
 animation = "clouds"
-frame = 2
+frame = 1
 
 [node name="santa_sleigh" type="AnimatedSprite" parent="background" index="1"]
 visible = false
@@ -25,46 +24,35 @@ centered = false
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 0, 84, 128, 84, 128, 128, 0, 128 )
 
-[node name="presents" type="Node2D" parent="objects/static" index="0"]
+[node name="enterance_door" type="Position2D" parent="logic/entry_points" index="0"]
+position = Vector2( 64, 124 )
 
-[node name="small_present" parent="objects/static/presents" index="0" instance=ExtResource( 6 )]
-position = Vector2( 116, 78 )
-z_index = 78
-frame = 1
+[node name="prison_door" type="Position2D" parent="logic/entry_points" index="1"]
+position = Vector2( 14, 113 )
 
-[node name="small_present2" parent="objects/static/presents" index="1" instance=ExtResource( 6 )]
-position = Vector2( 22, 91 )
-z_index = 91
-frame = 3
-flipped = true
+[node name="side" type="Position2D" parent="logic/npc_positions" index="0"]
+position = Vector2( 112, 112 )
 
-[node name="present" parent="objects/static/presents" index="2" instance=ExtResource( 5 )]
-position = Vector2( 12, 111 )
-z_index = 111
-flipped = true
+[node name="at_window" type="Position2D" parent="logic/npc_positions" index="1"]
+position = Vector2( 48, 90 )
 
-[node name="present2" parent="objects/static/presents" index="3" instance=ExtResource( 5 )]
-position = Vector2( 76, 108 )
-z_index = 108
-frame = 4
+[node name="prison_door" type="Area2D" parent="logic/portals" index="0"]
+position = Vector2( 1, 104 )
+collision_layer = 0
+collision_mask = 32
 
-[node name="present3" parent="objects/static/presents" index="4" instance=ExtResource( 5 )]
-position = Vector2( 35, 126 )
-z_index = 126
-frame = 3
-flipped = true
+[node name="collision" type="CollisionShape2D" parent="logic/portals/prison_door" index="0"]
+shape = SubResource( 1 )
 
-[node name="present4" parent="objects/static/presents" index="5" instance=ExtResource( 5 )]
-position = Vector2( 51, 78 )
-z_index = 78
-frame = 5
-flipped = true
+[node name="enterance_door" type="Area2D" parent="logic/portals" index="1"]
+position = Vector2( 64, 127 )
+collision_layer = 0
+collision_mask = 32
 
-[node name="elf" parent="objects/moving" index="0" instance=ExtResource( 4 )]
-position = Vector2( 106, 144 )
-
-[node name="player" parent="objects/moving" index="1" instance=ExtResource( 1 )]
-position = Vector2( 55, 127 )
+[node name="collision" type="CollisionShape2D" parent="logic/portals/enterance_door" index="0"]
+shape = SubResource( 1 )
 
 [connection signal="animation_finished" from="background/bg" to="." method="_on_bg_animation_finished"]
 [connection signal="animation_finished" from="background/santa_sleigh" to="." method="loop_santa_sleigh"]
+[connection signal="body_entered" from="logic/portals/prison_door" to="." method="_prison_door_trigger"]
+[connection signal="body_entered" from="logic/portals/enterance_door" to="." method="_enterance_door_trigger"]

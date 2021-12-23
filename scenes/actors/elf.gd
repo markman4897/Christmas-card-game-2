@@ -18,7 +18,10 @@ const shader_values = [
 func _ready():
 	# set shader color replacement values
 	if elf_type > 0: # because 0 is red, like the original resource
+		change_elf_colour(elf_type)
+
+func change_elf_colour(type):
 		load_shader_replace_color(FIRST_COLOR,
-				shader_values[elf_type][0],
+				shader_values[type][0],
 				SECOND_COLOR,
-				shader_values[elf_type][1])
+				shader_values[type][1])

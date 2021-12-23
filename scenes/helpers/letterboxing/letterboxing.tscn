@@ -1,6 +1,7 @@
 [gd_scene format=2]
 
 [node name="letterboxing" type="Node2D"]
+z_index = 3000
 
 [node name="top" type="ColorRect" parent="."]
 margin_right = 128.0

@@ -1,5 +1,7 @@
 extends Node2D
 
+# acts as the world map for traveling around
+
 
 const snowed_in_text = {
 	"start": {

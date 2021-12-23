@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/actors/_template_npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/actors/actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/aseprite_files/npcs/big_bad.ase" type="SpriteFrames" id=2]
-[ext_resource path="res://scenes/actors/big_bad.gd" type="Script" id=3]
+[ext_resource path="res://scenes/actors/npc.gd" type="Script" id=3]
 
-[node name="big_bad" instance=ExtResource( 1 )]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 28 )
+
+[node name="actor" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 idle_animation_exported = "idle"
 
 [node name="sprite" parent="." index="0"]
-position = Vector2( 0, -32 )
+position = Vector2( -16, -48 )
 frames = ExtResource( 2 )
-animation = "default"
+animation = "idle"
 frame = 3
 
+[node name="body" parent="." index="1"]
+visible = true
+position = Vector2( 2, -10 )
+shape = SubResource( 1 )
+
 [node name="colission" parent="sensor" index="0"]
-position = Vector2( 1, -3.5 )
+position = Vector2( 2, -27 )
+shape = SubResource( 2 )
