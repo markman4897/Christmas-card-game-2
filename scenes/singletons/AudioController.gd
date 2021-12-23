@@ -26,7 +26,7 @@ var bg_music_volume_p := 1.0
 const bg_music_transition_time := 2.0
 
 
-onready var ambiance_tracks := $sfx.get_children()
+onready var ambiance_tracks := $ambiance.get_children()
 var current_ambiance_track := 0
 
 var ambiance_volume_db := 0.0
