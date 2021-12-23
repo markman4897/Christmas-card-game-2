@@ -6,6 +6,7 @@ extends Resource
 # Default values for saved variables
 export var music_volume := 0.5
 export var sfx_volume := 0.6
+export var ambiance_volume := 0.4
 
 export var locations_state := {
 	"menu": 0,

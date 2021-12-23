@@ -43,11 +43,15 @@ func _slide_screen(new_location):
 		2:
 			$container/settings/fields/music/HSlider.grab_focus()
 
+func _music_changed(value):
+	AC.set_music_volume(value)
+
+func _ambiance_changed(value):
+	AC.set_ambiance_volume(value)
+
 func _sfx_changed(value):
 	AC.set_sfx_volume(value)
 
-func _music_changed(value):
-	AC.set_music_volume(value)
 
 func _on_clear_save_pressed():
 	SS.clear_settings_file()

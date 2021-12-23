@@ -1,9 +1,13 @@
 extends Node
 
 
-var music_dict := {
+var bg_music_dict := {
 	"sad": preload("res://assets/music/songs/MerryXmas.ogg"),
 	"happy": preload("res://assets/music/songs/Jingle.ogg")
+}
+
+var ambiance_dict := {
+	
 }
 
 var sfx_dict := {
@@ -13,7 +17,7 @@ var sfx_dict := {
 }
 
 
-onready var bg_music_tracks := [$bg_music_0, $bg_music_1]
+onready var bg_music_tracks := $bg_music.get_children()
 var current_bg_music_track := 0
 
 var bg_music_volume_db := 0.0
@@ -22,7 +26,16 @@ var bg_music_volume_p := 1.0
 const bg_music_transition_time := 2.0
 
 
-onready var sfx_tracks := [$sfx_0, $sfx_1, $sfx_2, $sfx_3, $sfx_4]
+onready var ambiance_tracks := $sfx.get_children()
+var current_ambiance_track := 0
+
+var ambiance_volume_db := 0.0
+var ambiance_volume_p := 1.0
+
+const ambiance_transition_time := 0.8
+
+
+onready var sfx_tracks := $sfx.get_children()
 var current_sfx_track := 0
 
 var sfx_volume_db := 0.0
@@ -48,7 +61,7 @@ func play_bg_music(song:String):
 	# FIXME: move this so it stopps after fade out
 	bg_music_tracks[next_track].stop()
 	bg_music_tracks[next_track].volume_db = -80.0
-	bg_music_tracks[next_track].stream = music_dict[song]
+	bg_music_tracks[next_track].stream = bg_music_dict[song]
 	
 	# play it
 	bg_music_tracks[next_track].play()
@@ -59,6 +72,26 @@ func play_bg_music(song:String):
 	S.summon_tween(bg_music_tracks[next_track], "volume_db", -80.0, bg_music_volume_db,
 			 bg_music_transition_time, "none", Tween.TRANS_QUART, Tween.EASE_OUT)
 	current_bg_music_track = next_track
+
+func play_ambiance(song:String):
+	# get next track
+	var next_track = get_next(ambiance_tracks, current_ambiance_track)
+	
+	# set it up
+	# FIXME: move this so it stopps after fade out
+	ambiance_tracks[next_track].stop()
+	ambiance_tracks[next_track].volume_db = -80.0
+	ambiance_tracks[next_track].stream = ambiance_dict[song]
+	
+	# play it
+	ambiance_tracks[next_track].play()
+	# fade old one out
+	S.summon_tween(ambiance_tracks[current_ambiance_track], "volume_db", ambiance_volume_db,
+			-80.0, ambiance_transition_time, "none", Tween.TRANS_QUART, Tween.EASE_IN)
+	# fade new one in
+	S.summon_tween(ambiance_tracks[next_track], "volume_db", -80.0, ambiance_volume_db,
+			 ambiance_transition_time, "none", Tween.TRANS_QUART, Tween.EASE_OUT)
+	current_ambiance_track = next_track
 
 func play_sfx(sound:String):
 	# get next track
@@ -103,6 +136,36 @@ func set_music_volume(volume:float, type:="percent"):
 	SS.save.music_volume = percent
 	
 	bg_music_tracks[current_bg_music_track].volume_db = db
+
+func get_ambiance_volume(type:="percent"):
+	match type:
+		"percent":
+			return ambiance_volume_p
+		"db":
+			return ambiance_volume_db
+		_:
+			S.error("get_ambiance_volume", "arg type has a typo")
+
+func set_ambiance_volume(volume:float, type:="percent"):
+	var db : float
+	var percent : float
+	
+	match type:
+		"percent":
+			db = linear2db(volume)
+			percent = volume
+		"db":
+			db = volume
+			percent = db2linear(volume)
+		_:
+			S.error("set_music_volume", "arg type has a typo")
+	
+	ambiance_volume_db = db
+	ambiance_volume_p = percent
+	
+	SS.save.ambiance_volume = percent
+	
+	ambiance_tracks[current_ambiance_track].volume_db = db
 
 func get_sfx_volume(type:="percent"):
 	match type:

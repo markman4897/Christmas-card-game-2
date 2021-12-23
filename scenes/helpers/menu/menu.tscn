@@ -204,61 +204,86 @@ __meta__ = {
 
 [node name="music" type="HBoxContainer" parent="container/settings/fields"]
 margin_right = 122.0
-margin_bottom = 11.0
+margin_bottom = 7.0
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="container/settings/fields/music"]
-margin_top = 2.0
 margin_right = 18.0
-margin_bottom = 9.0
+margin_bottom = 7.0
 text = "music"
 
 [node name="HSlider" type="HSlider" parent="container/settings/fields/music"]
 margin_left = 58.0
 margin_right = 122.0
-margin_bottom = 11.0
+margin_bottom = 7.0
 rect_min_size = Vector2( 64, 0 )
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath(".")
-focus_neighbour_right = NodePath("../../sfx/HSlider")
-focus_neighbour_bottom = NodePath("../../sfx/HSlider")
-focus_next = NodePath("../../sfx/HSlider")
+focus_neighbour_right = NodePath("../../ambiance/HSlider")
+focus_neighbour_bottom = NodePath("../../ambiance/HSlider")
+focus_next = NodePath("../../ambiance/HSlider")
 focus_previous = NodePath(".")
 size_flags_horizontal = 10
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.01
 
-[node name="sfx" type="HBoxContainer" parent="container/settings/fields"]
-margin_top = 15.0
+[node name="ambiance" type="HBoxContainer" parent="container/settings/fields"]
+margin_top = 11.0
 margin_right = 122.0
-margin_bottom = 27.0
+margin_bottom = 19.0
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="container/settings/fields/sfx"]
-margin_top = 2.0
-margin_right = 12.0
-margin_bottom = 9.0
-text = "sfx"
+[node name="Label" type="Label" parent="container/settings/fields/ambiance"]
+margin_right = 30.0
+margin_bottom = 7.0
+text = "ambiance"
 
-[node name="HSlider" type="HSlider" parent="container/settings/fields/sfx"]
+[node name="HSlider" type="HSlider" parent="container/settings/fields/ambiance"]
 margin_left = 58.0
 margin_right = 122.0
-margin_bottom = 12.0
+margin_bottom = 8.0
 rect_min_size = Vector2( 64, 0 )
 focus_neighbour_left = NodePath("../../music/HSlider")
 focus_neighbour_top = NodePath("../../music/HSlider")
-focus_neighbour_right = NodePath("../../clear_save")
-focus_neighbour_bottom = NodePath("../../clear_save")
-focus_next = NodePath("../../clear_save")
+focus_neighbour_right = NodePath("../../sfx/HSlider")
+focus_neighbour_bottom = NodePath("../../sfx/HSlider")
+focus_next = NodePath("../../sfx/HSlider")
 focus_previous = NodePath("../../music/HSlider")
 size_flags_horizontal = 10
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.01
 
+[node name="sfx" type="HBoxContainer" parent="container/settings/fields"]
+margin_top = 23.0
+margin_right = 122.0
+margin_bottom = 31.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="container/settings/fields/sfx"]
+margin_right = 12.0
+margin_bottom = 7.0
+text = "sfx"
+
+[node name="HSlider" type="HSlider" parent="container/settings/fields/sfx"]
+margin_left = 58.0
+margin_right = 122.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 64, 0 )
+focus_neighbour_left = NodePath("../../ambiance/HSlider")
+focus_neighbour_top = NodePath("../../ambiance/HSlider")
+focus_neighbour_right = NodePath("../../clear_save")
+focus_neighbour_bottom = NodePath("../../clear_save")
+focus_next = NodePath("../../clear_save")
+focus_previous = NodePath("../../ambiance/HSlider")
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
 [node name="clear_save" type="Button" parent="container/settings/fields"]
-margin_top = 31.0
+margin_top = 35.0
 margin_right = 122.0
 margin_bottom = 43.0
 focus_neighbour_left = NodePath("../sfx/HSlider")
@@ -293,6 +318,7 @@ text = "back"
 [connection signal="pressed" from="container/menu/buttons/settings" to="." method="_slide_screen" binds= [ 2 ]]
 [connection signal="pressed" from="container/menu/buttons/about" to="." method="_slide_screen" binds= [ 0 ]]
 [connection signal="value_changed" from="container/settings/fields/music/HSlider" to="." method="_music_changed"]
+[connection signal="value_changed" from="container/settings/fields/ambiance/HSlider" to="." method="_ambiance_changed"]
 [connection signal="value_changed" from="container/settings/fields/sfx/HSlider" to="." method="_sfx_changed"]
 [connection signal="pressed" from="container/settings/fields/clear_save" to="." method="_on_clear_save_pressed"]
 [connection signal="pressed" from="container/settings/fields/back" to="." method="_slide_screen" binds= [ 1 ]]

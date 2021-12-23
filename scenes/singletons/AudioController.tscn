@@ -5,18 +5,26 @@
 [node name="AudioController" type="Node"]
 script = ExtResource( 2 )
 
-[node name="bg_music_0" type="AudioStreamPlayer" parent="."]
+[node name="bg_music" type="Node" parent="."]
 
-[node name="bg_music_1" type="AudioStreamPlayer" parent="."]
+[node name="bg_music_0" type="AudioStreamPlayer" parent="bg_music"]
 
-[node name="sfx_0" type="AudioStreamPlayer" parent="."]
+[node name="bg_music_1" type="AudioStreamPlayer" parent="bg_music"]
 
-[node name="sfx_1" type="AudioStreamPlayer" parent="."]
+[node name="ambiance" type="Node" parent="."]
 
-[node name="sfx_2" type="AudioStreamPlayer" parent="."]
+[node name="ambiance_0" type="AudioStreamPlayer" parent="ambiance"]
 
-[node name="sfx_3" type="AudioStreamPlayer" parent="."]
+[node name="ambiance_1" type="AudioStreamPlayer" parent="ambiance"]
 
-[node name="sfx_4" type="AudioStreamPlayer" parent="."]
+[node name="sfx" type="Node" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="sfx_0" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="sfx_1" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="sfx_2" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="sfx_3" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="sfx_4" type="AudioStreamPlayer" parent="sfx"]
