@@ -7,6 +7,7 @@ func _ready():
 	
 	# just in case we start from this scene
 	S.control_letterboxing(true)
+	AC.play_bg_music("sad")
 
 
 func after_animation_sequence():

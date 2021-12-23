@@ -100,6 +100,9 @@ tracks/3/keys = {
 [node name="overworld" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="stars" parent="background" index="0"]
+frame = 3
+
 [node name="bg" parent="background" index="1"]
 frame = 1
 

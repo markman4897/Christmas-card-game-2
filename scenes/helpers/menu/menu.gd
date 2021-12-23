@@ -7,6 +7,7 @@ var location = 1
 func _ready():
 	# set current values for sound sliders
 	$container/settings/fields/music/HSlider.value = AC.get_music_volume()
+	$container/settings/fields/ambiance/HSlider.value = AC.get_ambiance_volume()
 	$container/settings/fields/sfx/HSlider.value = AC.get_sfx_volume()
 	
 	# load music

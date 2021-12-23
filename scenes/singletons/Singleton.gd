@@ -81,6 +81,7 @@ func _ready():
 	
 	# set variables from saved
 	AC.set_music_volume(SS.save.music_volume)
+	AC.set_ambiance_volume(SS.save.ambiance_volume)
 	AC.set_sfx_volume(SS.save.sfx_volume)
 
 
@@ -115,7 +116,7 @@ func change_scene(scene:String, curtain:=true):
 	
 	current_scene.queue_free()
 	
-	# if we iterated scene too far
+	# if we iterated scene too far or came to the last scene change
 	if SS.save.locations_state[scene] >= scenes[scene].size():
 		S.error("SS.save", '"'+scene+'" got over iterated! '+str(SS.save.locations_state[scene]))
 		SS.save.locations_state[scene] = scenes[scene].size()-1

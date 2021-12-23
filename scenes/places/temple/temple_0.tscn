@@ -124,9 +124,6 @@ tracks/4/keys = {
 [node name="temple" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
-[node name="bg" parent="background" index="0"]
-frame = 2
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="logic" index="4"]
 anims/RESET = SubResource( 1 )
 anims/start = SubResource( 2 )

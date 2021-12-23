@@ -75,12 +75,6 @@ tracks/0/keys = {
 [node name="overworld" instance=ExtResource( 2 )]
 script = ExtResource( 6 )
 
-[node name="stars" parent="background" index="0"]
-frame = 3
-
-[node name="bg" parent="background" index="1"]
-frame = 1
-
 [node name="paths" type="Node2D" parent="logic" index="4"]
 
 [node name="hub-tinsel" type="Path2D" parent="logic/paths" index="0"]

@@ -15,7 +15,7 @@ export var locations_state := {
 	"temple": 0,
 	"temple_prison": 0,
 	"star_city": 0,
-	"tinsel_town": 0,
+	"tinsel_township": 0,
 	"bauble_borough": 0,
 }
 

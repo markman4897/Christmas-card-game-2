@@ -20,6 +20,8 @@ var sfx_dict := {
 onready var bg_music_tracks := $bg_music.get_children()
 var current_bg_music_track := 0
 
+var current_bg_music_song := "none"
+
 var bg_music_volume_db := 0.0
 var bg_music_volume_p := 1.0
 
@@ -28,6 +30,8 @@ const bg_music_transition_time := 2.0
 
 onready var ambiance_tracks := $ambiance.get_children()
 var current_ambiance_track := 0
+
+var current_ambiance_song := "none"
 
 var ambiance_volume_db := 0.0
 var ambiance_volume_p := 1.0
@@ -53,7 +57,13 @@ func get_next(array:Array, pointer:int):
 	else:
 		return pointer + 1
 
-func play_bg_music(song:String):
+func play_bg_music(song:String, force:=false):
+	# if song is the same and you don't want to force change, skip
+	if current_bg_music_song == song and !force:
+		return
+	
+	current_bg_music_song = song
+	
 	# get next track
 	var next_track = get_next(bg_music_tracks, current_bg_music_track)
 	
@@ -73,7 +83,13 @@ func play_bg_music(song:String):
 			 bg_music_transition_time, "none", Tween.TRANS_QUART, Tween.EASE_OUT)
 	current_bg_music_track = next_track
 
-func play_ambiance(song:String):
+func play_ambiance(song:String, force:=false):
+	# if song is the same and you don't want to force change, skip
+	if current_ambiance_song == song and !force:
+		return
+	
+	current_ambiance_song = song
+	
 	# get next track
 	var next_track = get_next(ambiance_tracks, current_ambiance_track)
 	
@@ -129,6 +145,7 @@ func set_music_volume(volume:float, type:="percent"):
 			percent = db2linear(volume)
 		_:
 			S.error("set_music_volume", "arg type has a typo")
+			return
 	
 	bg_music_volume_db = db
 	bg_music_volume_p = percent
@@ -158,7 +175,8 @@ func set_ambiance_volume(volume:float, type:="percent"):
 			db = volume
 			percent = db2linear(volume)
 		_:
-			S.error("set_music_volume", "arg type has a typo")
+			S.error("set_ambiance_volume", "arg type has a typo")
+			return
 	
 	ambiance_volume_db = db
 	ambiance_volume_p = percent
@@ -175,6 +193,7 @@ func get_sfx_volume(type:="percent"):
 			return sfx_volume_db
 		_:
 			S.error("get_sfx_volume", "arg type has a typo")
+			return
 
 func set_sfx_volume(volume:float, type:="percent"):
 	var db : float

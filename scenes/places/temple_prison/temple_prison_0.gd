@@ -31,6 +31,9 @@ func _ready() -> void:
 	$objects/static/santa.connect_trigger(self, "_santa_trigger")
 	$objects/static/santa.movement_disabled = true
 	$objects/moving/big_bad.is_actor = true
+	
+	# just in case we start from this scene
+	AC.play_bg_music("sad")
 
 
 func _santa_trigger(_a, _b, _c, _d):
