@@ -20,7 +20,7 @@ func _ready():
 #
 
 func _on_start_pressed():
-	S.change_scene("temple_enterance")
+	S.change_scene(SS.save.last_location)
 
 func _slide_screen(new_location):
 	if new_location < 0 or new_location > 2:

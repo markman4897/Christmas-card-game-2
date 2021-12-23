@@ -17,3 +17,5 @@ export var locations_state := {
 	"tinsel_town": 0,
 	"bauble_borough": 0,
 }
+
+export var last_location := "temple_enterance"

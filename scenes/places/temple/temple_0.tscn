@@ -138,4 +138,5 @@ idle_animation_exported = "levitate"
 
 [node name="player" parent="objects/moving" index="1" instance=ExtResource( 2 )]
 position = Vector2( -10, 76 )
+is_actor = true
 idle_animation_exported = "cry"

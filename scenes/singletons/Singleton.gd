@@ -114,7 +114,18 @@ func change_scene(scene:String, curtain:=true):
 	SS.save_to_file()
 	
 	current_scene.queue_free()
+	
+	# if we iterated scene too far
+	if SS.save.locations_state[scene] >= scenes[scene].size():
+		S.error("SS.save", '"'+scene+'" got over iterated! '+str(SS.save.locations_state[scene]))
+		SS.save.locations_state[scene] = scenes[scene].size()-1
+	
+	if scene != "menu":
+		SS.save.last_location = scene
+	
 	var new_scene = scenes[scene][SS.save.locations_state[scene]].instance()
+	
+	
 	root.add_child(new_scene)
 	current_scene = new_scene
 	
