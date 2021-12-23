@@ -70,7 +70,10 @@ func _ready():
 	#       I tried to run Singleton.tscn as "application/run/main_scene" but I
 	#       got a "cyclic reference" error no matter how I went about it...
 	#       ... maybe next time I'll get it right from the start...
-	current_scene = root.get_node("menu")
+	current_scene = root.get_node_or_null("menu")
+	# this is just for debugging, when you don't start the game from the menu
+	if !current_scene:
+		current_scene = root.get_children()[root.get_child_count()-1]
 	
 	# load save file
 	SS.load_from_file()

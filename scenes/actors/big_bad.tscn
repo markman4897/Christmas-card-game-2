@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/actors/_template_npc.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/aseprite_files/npcs/big_bad.ase" type="SpriteFrames" id=2]
+[ext_resource path="res://scenes/actors/big_bad.gd" type="Script" id=3]
 
 [node name="big_bad" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 idle_animation_exported = "idle"
 
 [node name="sprite" parent="." index="0"]

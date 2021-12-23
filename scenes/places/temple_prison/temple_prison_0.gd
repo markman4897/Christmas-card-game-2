@@ -28,6 +28,7 @@ func _ready() -> void:
 	# set up red elf
 	$objects/static/santa.connect_trigger(self, "_santa_trigger")
 	$objects/static/santa.movement_disabled = true
+	$objects/moving/big_bad.is_actor = true
 
 
 func _santa_trigger(_a, _b, _c, _d):
@@ -41,5 +42,5 @@ func _santa_trigger(_a, _b, _c, _d):
 func _after_text(_arg):
 	$logic/AnimationPlayer.current_animation = "start"
 
-func next_animation_sequence():
+func after_animation_sequence():
 	S.change_scene("temple",false)

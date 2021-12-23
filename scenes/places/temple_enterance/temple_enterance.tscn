@@ -14,7 +14,7 @@ script = ExtResource( 6 )
 [node name="bg" parent="background" index="0"]
 frames = ExtResource( 2 )
 animation = "closed"
-frame = 4
+frame = 5
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 0, 108, 32, 85, 53, 77, 76, 77, 80, 68, 98, 78, 107, 105, 128, 121, 128, 128, 0, 128 )
@@ -37,7 +37,7 @@ collision_mask = 32
 shape = SubResource( 1 )
 
 [node name="back_enterance_trigger" type="Area2D" parent="logic/portals" index="1"]
-position = Vector2( 28, 88 )
+position = Vector2( 29, 90 )
 collision_layer = 0
 collision_mask = 32
 
@@ -47,7 +47,6 @@ shape = SubResource( 1 )
 [node name="snow" type="AnimatedSprite" parent="foreground" index="0"]
 frames = ExtResource( 3 )
 animation = "idle"
-frame = 1
 playing = true
 centered = false
 

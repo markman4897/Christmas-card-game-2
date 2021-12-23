@@ -1,4 +1,4 @@
-extends Actor
+extends Npc
 
 # adds player controlled movement
 

@@ -55,7 +55,10 @@ func set_animation(animation:String):
 	$sprite.animation = animation
 
 func toggle_movement(state:bool):
-	movement_disabled = state
+	movement_disabled = !state
+
+func toggle_is_actor(state:bool):
+	is_actor = state
 
 
 #
