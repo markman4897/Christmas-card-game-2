@@ -1,17 +1,68 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/places/tinsel_township/tinsel_township.gd" type="Script" id=2]
 [ext_resource path="res://assets/aseprite_files/places/tinsel_township/tinsel_township.ase" type="SpriteFrames" id=3]
 [ext_resource path="res://assets/aseprite_files/places/night_stars.ase" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/aseprite_files/places/tinsel_township/evergreens.ase" type="SpriteFrames" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 2 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1, 1 )
 
 [node name="tinsel_township" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
+frame = 1
 playing = true
 centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 3 )
+
+[node name="outer" parent="logic/border" index="0"]
+polygon = PoolVector2Array( 0, 100, 9, 100, 22, 91, 22, 86, 34, 86, 43, 82, 59, 86, 92, 87, 96, 84, 108, 91, 110, 87, 128, 103, 128, 128, 0, 128 )
+
+[node name="flowers" type="CollisionShape2D" parent="logic/border" index="1"]
+position = Vector2( 96, 114 )
+shape = SubResource( 1 )
+
+[node name="rock" type="CollisionPolygon2D" parent="logic/border" index="2"]
+polygon = PoolVector2Array( 24, 112, 34, 115, 45, 112, 43, 107, 27, 107 )
+
+[node name="overworld" type="Position2D" parent="logic/entry_points" index="0"]
+position = Vector2( 67, 122 )
+
+[node name="rock" type="Position2D" parent="logic/npc_positions" index="0"]
+position = Vector2( 34, 108 )
+
+[node name="flowers" type="Position2D" parent="logic/npc_positions" index="1"]
+position = Vector2( 97, 109 )
+
+[node name="house_left" type="Position2D" parent="logic/npc_positions" index="2"]
+position = Vector2( 18, 99 )
+
+[node name="house_middle" type="Position2D" parent="logic/npc_positions" index="3"]
+position = Vector2( 66, 92 )
+
+[node name="house_right" type="Position2D" parent="logic/npc_positions" index="4"]
+position = Vector2( 110, 99 )
+
+[node name="overworld_trigger" type="Area2D" parent="logic/portals" index="0"]
+position = Vector2( 67, 127 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="logic/portals/overworld_trigger" index="0"]
+shape = SubResource( 2 )
+
+[node name="foreground" parent="." index="3"]
+position = Vector2( 23, 45 )
+
+[node name="evergreens" type="AnimatedSprite" parent="foreground" index="0"]
+position = Vector2( 41, 43 )
+frames = ExtResource( 5 )

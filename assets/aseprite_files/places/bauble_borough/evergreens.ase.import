@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/evergreens.ase-551b0b3e5ef9381c7fe5ed7d5ca52db8.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/bauble_borough/evergreens.ase"
+dest_files=[ "res://.import/evergreens.ase-551b0b3e5ef9381c7fe5ed7d5ca52db8.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

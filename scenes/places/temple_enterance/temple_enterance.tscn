@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/aseprite_files/places/temple_enterance/temple_entrance.ase" type="SpriteFrames" id=2]
 [ext_resource path="res://assets/aseprite_files/places/snow.ase" type="SpriteFrames" id=3]
@@ -8,13 +8,15 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1, 1 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1, 1 )
+
 [node name="temple_enterance" instance=ExtResource( 4 )]
 script = ExtResource( 6 )
 
 [node name="bg" parent="background" index="0"]
 frames = ExtResource( 2 )
 animation = "closed"
-frame = 5
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 0, 108, 32, 85, 53, 77, 76, 77, 80, 68, 98, 78, 107, 105, 128, 121, 128, 128, 0, 128 )
@@ -22,8 +24,8 @@ polygon = PoolVector2Array( 0, 108, 32, 85, 53, 77, 76, 77, 80, 68, 98, 78, 107,
 [node name="door" type="Position2D" parent="logic/entry_points" index="0"]
 position = Vector2( 66, 92 )
 
-[node name="mountain" type="Position2D" parent="logic/entry_points" index="1"]
-position = Vector2( 39, 127 )
+[node name="overworld" type="Position2D" parent="logic/entry_points" index="1"]
+position = Vector2( 45, 124 )
 
 [node name="rock" type="Position2D" parent="logic/npc_positions" index="0"]
 position = Vector2( 78, 107 )
@@ -44,12 +46,22 @@ collision_mask = 32
 [node name="collision" type="CollisionShape2D" parent="logic/portals/back_enterance_trigger" index="0"]
 shape = SubResource( 1 )
 
+[node name="overworld_trigger" type="Area2D" parent="logic/portals" index="2"]
+position = Vector2( 38, 127 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="logic/portals/overworld_trigger" index="0"]
+shape = SubResource( 2 )
+
 [node name="snow" type="AnimatedSprite" parent="foreground" index="0"]
 frames = ExtResource( 3 )
 animation = "idle"
+frame = 3
 playing = true
 centered = false
 
 [connection signal="animation_finished" from="background/bg" to="." method="_on_bg_animation_finished"]
 [connection signal="body_entered" from="logic/portals/door_trigger" to="." method="_door_trigger"]
 [connection signal="body_entered" from="logic/portals/back_enterance_trigger" to="." method="_back_enterance_trigger"]
+[connection signal="body_entered" from="logic/portals/overworld_trigger" to="." method="_overworld_trigger"]

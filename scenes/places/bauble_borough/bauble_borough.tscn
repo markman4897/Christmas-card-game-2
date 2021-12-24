@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/places/base_place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/places/bauble_borough/bauble_borough.gd" type="Script" id=2]
 [ext_resource path="res://assets/aseprite_files/places/bauble_borough/bauble_borough.ase" type="SpriteFrames" id=3]
 [ext_resource path="res://assets/aseprite_files/places/night_stars.ase" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/aseprite_files/places/bauble_borough/evergreens.ase" type="SpriteFrames" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
 
 [node name="bauble_borough" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
-frame = 2
+frame = 3
 playing = true
 centered = false
 
@@ -18,3 +22,44 @@ centered = false
 frames = ExtResource( 3 )
 animation = "door_closed"
 frame = 2
+
+[node name="outer" parent="logic/border" index="0"]
+polygon = PoolVector2Array( 16, 123, 0, 124, 0, 111, 5, 109, 5, 87, 17, 90, 46, 81, 46, 73, 70, 73, 80, 67, 91, 78, 100, 81, 109, 77, 128, 83, 128, 110, 123, 122, 100, 128, 18, 128 )
+
+[node name="overworld" type="Position2D" parent="logic/entry_points" index="0"]
+position = Vector2( 63, 124 )
+
+[node name="sokoban" type="Position2D" parent="logic/entry_points" index="1"]
+position = Vector2( 43, 93 )
+
+[node name="center_house" type="Position2D" parent="logic/npc_positions" index="0"]
+position = Vector2( 66, 76 )
+
+[node name="right_house" type="Position2D" parent="logic/npc_positions" index="1"]
+position = Vector2( 94, 85 )
+
+[node name="left" type="Position2D" parent="logic/npc_positions" index="2"]
+position = Vector2( 24, 120 )
+
+[node name="door_trigger" type="Area2D" parent="logic/portals" index="0"]
+position = Vector2( 33, 86 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="logic/portals/door_trigger" index="0"]
+shape = SubResource( 1 )
+
+[node name="overworld_trigger" type="Area2D" parent="logic/portals" index="1"]
+position = Vector2( 63, 127 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="collision" type="CollisionShape2D" parent="logic/portals/overworld_trigger" index="0"]
+shape = SubResource( 1 )
+
+[node name="evergreens" type="AnimatedSprite" parent="foreground" index="0"]
+position = Vector2( 64, 87 )
+frames = ExtResource( 5 )
+
+[connection signal="body_entered" from="logic/portals/door_trigger" to="." method="_door_trigger"]
+[connection signal="body_entered" from="logic/portals/overworld_trigger" to="." method="_overworld_trigger"]

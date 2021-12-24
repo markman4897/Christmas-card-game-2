@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_animation_importer"
+type="SpriteFrames"
+path="res://.import/evergreens.ase-a229221d13e9b1ede0fd60e956062390.res"
+
+[deps]
+
+source_file="res://assets/aseprite_files/places/tinsel_township/evergreens.ase"
+dest_files=[ "res://.import/evergreens.ase-a229221d13e9b1ede0fd60e956062390.res" ]
+
+[params]
+
+extrude=false
+default_direction="Forward"
+default_loop=false

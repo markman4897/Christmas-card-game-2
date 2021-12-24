@@ -12,6 +12,7 @@ func load_from_file():
 		save = ResourceLoader.load(SAVE_FILE_LOCATION)
 	else:
 		save = SaveFileDefault.new()
+		save_to_file()
 
 func save_to_file():
 	var _void = ResourceSaver.save(SAVE_FILE_LOCATION, save)
