@@ -3,16 +3,6 @@ extends Node2D
 
 
 #
-# MAIN FUNCS
-#
-
-func _ready() -> void:
-	# just in case I fuck something up in the editor...
-	$logic/portals/door_trigger.monitoring = false
-	$logic/portals/back_enterance_trigger.monitoring = false
-
-
-#
 # SIGNAL HANDLING
 #
 

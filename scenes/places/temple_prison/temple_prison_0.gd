@@ -27,7 +27,11 @@ var santa_text = {
 #
 
 func _ready() -> void:
-	# set up red elf
+	# just in case I fuck something up in the editor...
+	$logic/portals/door_trigger.monitoring = false
+	$logic/portals/back_enterance_trigger.monitoring = false
+	
+	# set up santa and big bad
 	$objects/static/santa.connect_trigger(self, "_santa_trigger")
 	$objects/static/santa.movement_disabled = true
 	$objects/moving/big_bad.is_actor = true

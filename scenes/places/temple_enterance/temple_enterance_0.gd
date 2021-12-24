@@ -29,6 +29,10 @@ var elf_text = {
 #
 
 func _ready() -> void:
+	# just in case I fuck something up in the editor...
+	$logic/portals/door_trigger.monitoring = false
+	$logic/portals/back_enterance_trigger.monitoring = false
+	
 	# set up red elf
 	$objects/static/elf.connect_trigger(self, "_elf_trigger")
 	$objects/static/elf.movement_disabled = true

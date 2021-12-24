@@ -9,7 +9,7 @@
 script = ExtResource( 3 )
 
 [node name="bg" parent="background" index="0"]
-frame = 2
+frame = 3
 
 [node name="elf" parent="objects/static" index="0" instance=ExtResource( 2 )]
 position = Vector2( 78, 107 )
@@ -19,4 +19,4 @@ idle_animation_exported = "cry"
 position = Vector2( 39, 124 )
 
 [node name="snow" parent="foreground" index="0"]
-frame = 2
+frame = 3
