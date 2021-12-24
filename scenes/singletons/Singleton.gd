@@ -39,6 +39,7 @@ const scenes := {
 	],
 	"star_city": [
 		preload("res://scenes/places/star_city/star_city_0.tscn"),
+		preload("res://scenes/places/star_city/star_city_1.tscn"),
 	],
 }
 

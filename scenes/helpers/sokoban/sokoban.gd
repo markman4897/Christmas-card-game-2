@@ -27,6 +27,8 @@ var target_pos : Array
 
 var input := true
 
+var preferred_enterance
+
 
 func _ready():
 	# get player position in objects tilemap

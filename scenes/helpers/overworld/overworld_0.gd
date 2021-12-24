@@ -1,5 +1,7 @@
 extends Node2D
 
+var preferred_enterance
+
 func _ready():
 	$logic/AnimationPlayer.current_animation = "start"
 	

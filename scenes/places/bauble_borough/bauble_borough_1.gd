@@ -30,5 +30,4 @@ func _ready():
 #
 
 func _elf2_trigger(_a, _b, _c, _d) -> void:
-	var random_text = S.get_random_text()
-	S.summon_textBox(self, random_text)
+	S.summon_textBox(self, S.get_random_text())

@@ -122,6 +122,19 @@ var elf_text = {
 	},
 }
 
+var elf_text_2 = {
+	"start": {
+		"type": "response",
+		"text": "it's real nice having a friend after all this time.",
+		"next": "end"
+	},
+	"end": {
+		"type": "response",
+		"text": "merry christmas kid.",
+		"return": "none"
+	}
+}
+
 var elf2_text = {
 	"start": {
 		"type": "response",
@@ -193,3 +206,5 @@ func _after_text(arg):
 	if arg == "success":
 		SS.save.locations_state.star_city = 1
 		SS.save.progression.star_city = 1
+		AC.play_bg_music("happy")
+		elf_text = elf_text_2
