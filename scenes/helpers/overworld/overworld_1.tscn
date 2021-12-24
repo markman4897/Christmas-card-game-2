@@ -78,9 +78,6 @@ script = ExtResource( 6 )
 [node name="stars" parent="background" index="0"]
 frame = 0
 
-[node name="bg" parent="background" index="1"]
-frame = 2
-
 [node name="paths" type="Node2D" parent="logic" index="4"]
 
 [node name="hub-tinsel" type="Path2D" parent="logic/paths" index="0"]
@@ -92,7 +89,6 @@ rotate = false
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/hub-tinsel/PathFollow2D" index="0"]
-remote_path = NodePath("../../../../../objects/moving/player")
 update_rotation = false
 update_scale = false
 
@@ -106,7 +102,6 @@ rotate = false
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/hub-bauble/PathFollow2D" index="0"]
-remote_path = NodePath("../../../../../objects/moving/player")
 update_rotation = false
 update_scale = false
 
@@ -120,7 +115,6 @@ rotate = false
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/bauble-star/PathFollow2D" index="0"]
-remote_path = NodePath("../../../../../objects/moving/player")
 update_rotation = false
 update_scale = false
 
@@ -134,7 +128,6 @@ rotate = false
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/tinsel-star/PathFollow2D" index="0"]
-remote_path = NodePath("../../../../../objects/moving/player")
 update_rotation = false
 update_scale = false
 
@@ -149,7 +142,6 @@ rotate = false
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="logic/paths/star-temple/PathFollow2D" index="0"]
-remote_path = NodePath("../../../../../objects/moving/player")
 update_rotation = false
 update_scale = false
 

@@ -1,30 +1,26 @@
-extends BaubleBorough
+extends BaubleBorough_0
 
 
-var elf_text = {
-	"start": {
-		"type": "response",
-		"text": "due to various troubles having to do with my finances, i am at this moment unable to provide you",
-		"next": "1"
-	},
-	"1": {
-		"type": "response",
-		"text": "with anything costing over 25c. so, here’s a 10c gift certificate to any star sandwiches establishment.",
-		"next": "end"
-	},
-	"end": {
-		"type": "response",
-		"text": "also, here’s this old key i found in the city hall.",
-		"return": "none"
+func _init():
+	elf_text_2 = {
+		"start": {
+			"type": "response",
+			"text": "you're always welcome to move more boxes.",
+			"next": "1"
+		},
+		"1": {
+			"type": "response",
+			"text": "i don't know what i can do for compensation but we'll cross that bridge when we get there.",
+			"next": "end"
+		},
+		"end": {
+			"type": "response",
+			"text": "anyways, merry christmas",
+			"return": "none"
+		}
 	}
-}
-
 
 func _ready():
-	# set up elf
-	$objects/static/elf.connect_trigger(self, "_elf_trigger")
-	$objects/static/elf2.connect_trigger(self, "_elf2_trigger")
-	
 	# load music
 	AC.play_bg_music("happy")
 
@@ -32,9 +28,6 @@ func _ready():
 #
 # SIGNAL HANDLING
 #
-
-func _elf_trigger(_a, _b, _c, _d) -> void:
-	S.summon_textBox(self, elf_text)
 
 func _elf2_trigger(_a, _b, _c, _d) -> void:
 	var random_text = S.get_random_text()

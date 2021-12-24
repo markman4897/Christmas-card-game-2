@@ -1,6 +1,6 @@
 class_name TinselTownship
-extends Node2D
+extends BasePlace
 
 
 func _on_overworld_trigger_body_entered(_body):
-	S.change_scene("overworld")
+	S.change_scene("overworld", "tinsel_township")

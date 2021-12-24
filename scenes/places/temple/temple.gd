@@ -7,11 +7,11 @@ extends BasePlace
 #
 
 func _prison_door_trigger():
-	S.change_scene("temple_prison")
+	S.change_scene("temple_prison", "door")
 
 
 func _enterance_door_trigger():
-	S.change_scene("temple_enterance")
+	S.change_scene("temple_enterance", "door")
 
 # ensures the night animation goes after transition animation
 func _on_bg_animation_finished() -> void:

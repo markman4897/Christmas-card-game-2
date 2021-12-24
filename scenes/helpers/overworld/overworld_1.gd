@@ -12,14 +12,27 @@ const path_locked_text = {
 }
 
 
-onready var current_point := $logic/points/hub
+var current_point : Node
+var preferred_enterance := "none"
 
-var input := true
+onready var player := $objects/moving/player
+
+var input := false
 var direction := "none"
 
 
 func _ready() -> void:
-	$objects/moving/player.position = current_point.position
+	if preferred_enterance != "none":
+		var tmp = get_node_or_null("logic/points/"+preferred_enterance)
+		if tmp:
+			current_point = tmp
+		else:
+			current_point = $logic/points/hub
+	else:
+		current_point = $logic/points/hub
+	
+	
+	player.position = current_point.position
 	
 	AC.play_bg_music("sad")
 	
@@ -36,6 +49,9 @@ func _ready() -> void:
 		and SS.save.progression.tinsel_township > 0
 		and SS.save.progression.bauble_borough > 0):
 		$logic/points/star_city.up = 2
+	
+	yield(get_tree().create_timer(0.5), "timeout")
+	input = true
 
 func _physics_process(delta) -> void:
 	move_player(delta)
@@ -55,7 +71,7 @@ func _unhandled_input(event) -> void:
 		
 		if event is InputEventMouseButton:
 			if event.button_index == 1 and event.is_pressed():
-				var diff = get_viewport().get_mouse_position() - $objects/moving/player.position
+				var diff = get_viewport().get_mouse_position() - player.position
 				if diff.length() < 10:
 					load_current_point()
 				else:
@@ -83,6 +99,8 @@ func move_player(delta) -> void:
 			var path_direction = current_point[direction.left(1)+"_direction"]
 			
 			if input:
+				path_follow.get_node("RemoteTransform2D").remote_path = path_follow.get_node("RemoteTransform2D").get_path_to(player)
+				
 				if path_direction:
 					path_follow.unit_offset = 0.0
 				else:
@@ -103,7 +121,7 @@ func move_player(delta) -> void:
 
 func load_current_point() -> void:
 	if current_point.place != "none":
-		S.change_scene(current_point.place)
+		S.change_scene(current_point.place, "overworld")
 
 func after_text(_arg):
 	# TODO: this is somewhat hacky, find a place to call this after the textbox

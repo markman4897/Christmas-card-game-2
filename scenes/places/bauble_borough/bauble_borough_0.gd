@@ -1,3 +1,4 @@
+class_name BaubleBorough_0
 extends BaubleBorough
 
 
@@ -47,6 +48,25 @@ var elf_text = {
 	}
 }
 
+
+var elf_text_2 = {
+	"start": {
+		"type": "response",
+		"text": "due to various troubles having to do with my finances, i am at this moment unable to provide you",
+		"next": "1"
+	},
+	"1": {
+		"type": "response",
+		"text": "with anything costing over 25c. so, here’s a 10c gift certificate to any star sandwiches establishment.",
+		"next": "end"
+	},
+	"end": {
+		"type": "response",
+		"text": "also, here’s this old key i found in the city hall.",
+		"return": "change_scene"
+	}
+}
+
 var elf2_text = {
 	"start": {
 		"type": "response",
@@ -61,7 +81,7 @@ var elf2_text = {
 	"end": {
 		"type": "response",
 		"text": "i sure hope he will get better soon.",
-		"return": "prompt_over"
+		"return": "none"
 	}
 }
 
@@ -72,8 +92,12 @@ func _ready():
 	$objects/static/elf.connect_trigger(self, "_elf_trigger")
 	$objects/static/elf2.connect_trigger(self, "_elf2_trigger")
 	
-	# load music
-	AC.play_bg_music("sad")
+	if SS.save.locations_state.sokoban > 0:
+		$objects/static/elf.set_idle_animation("celebrate_2")
+		elf_text = elf_text_2
+		AC.play_bg_music("happy")
+	else:
+		AC.play_bg_music("sad")
 
 
 #
@@ -95,3 +119,6 @@ func _after_text(arg):
 	if arg == "prompt_over":
 		$background/bg.play("door_open")
 		$logic/portals/door_trigger.monitoring = true
+	elif arg == "change_scene":
+		SS.save.locations_state.bauble_borough = 1
+		elf_text = elf_text_2

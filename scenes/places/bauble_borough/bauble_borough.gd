@@ -1,5 +1,5 @@
 class_name BaubleBorough
-extends Node2D
+extends BasePlace
 
 
 #
@@ -10,4 +10,4 @@ func _door_trigger(_body: Node) -> void:
 	S.change_scene("sokoban")
 
 func _overworld_trigger(_body: Node) -> void:
-	S.change_scene("overworld")
+	S.change_scene("overworld", "bauble_borough")

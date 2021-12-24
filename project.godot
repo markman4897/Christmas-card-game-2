@@ -19,10 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/places/base_place.gd"
 }, {
-"base": "Node2D",
+"base": "BasePlace",
 "class": "BaubleBorough",
 "language": "GDScript",
 "path": "res://scenes/places/bauble_borough/bauble_borough.gd"
+}, {
+"base": "BaubleBorough",
+"class": "BaubleBorough_0",
+"language": "GDScript",
+"path": "res://scenes/places/bauble_borough/bauble_borough_0.gd"
 }, {
 "base": "Actor",
 "class": "Npc",
@@ -59,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/places/temple_prison/temple_prison.gd"
 }, {
-"base": "Node2D",
+"base": "BasePlace",
 "class": "TinselTownship",
 "language": "GDScript",
 "path": "res://scenes/places/tinsel_township/tinsel_township.gd"
@@ -73,6 +78,7 @@ _global_script_class_icons={
 "Actor": "",
 "BasePlace": "",
 "BaubleBorough": "",
+"BaubleBorough_0": "",
 "Npc": "",
 "SaveFileDefault": "",
 "SolidObject": "",

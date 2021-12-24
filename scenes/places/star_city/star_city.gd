@@ -3,4 +3,4 @@ extends BasePlace
 
 
 func _overworld_trigger(_body):
-	S.change_scene("overworld")
+	S.change_scene("overworld", "star_city")

@@ -2,6 +2,15 @@ class_name BasePlace
 extends Node2D
 
 
+var preferred_enterance := "none"
+
+
+func _ready():
+	var is_player_present = get_node_or_null("objects/moving/player")
+	
+	if preferred_enterance != "none" and is_player_present:
+		is_player_present.position = get_node("logic/entry_points/"+preferred_enterance).position
+
 func _process(_delta):
 	# loop for setting z_index of moving objects
 	for node in $objects/moving.get_children():

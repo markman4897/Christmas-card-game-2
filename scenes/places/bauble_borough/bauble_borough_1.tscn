@@ -9,7 +9,7 @@
 script = ExtResource( 4 )
 
 [node name="stars" parent="background" index="0"]
-frame = 0
+frame = 2
 
 [node name="bg" parent="background" index="1"]
 animation = "door_open"

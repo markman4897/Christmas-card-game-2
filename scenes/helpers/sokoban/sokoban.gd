@@ -79,15 +79,14 @@ func _unhandled_input(event) -> void:
 		
 		if check_win_state():
 			SS.save.locations_state.sokoban += 1
-			SS.save.locations_state.bauble_borough = 1
 			SS.save.progression.bauble_borough = 1
-			S.change_scene("bauble_borough")
+			S.change_scene("bauble_borough", "sokoban")
 
 func try_move(direction):
 	var next_tile = player_pos + Direction_vec[direction]
 	
 	if is_door(next_tile):
-		S.change_scene("bauble_borough")
+		S.change_scene("bauble_borough", "sokoban")
 	
 	elif is_wall(next_tile):
 		pass
@@ -144,7 +143,7 @@ func move_present(vec:Vector2, direction:String):
 	$objects.set_cellv(vec + Direction_vec[direction], PRESENT)
 
 func restart_level() -> void:
-	S.change_scene("sokoban", false)
+	S.change_scene("sokoban", "none", false)
 
 func check_win_state() -> bool:
 	for target in target_pos:

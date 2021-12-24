@@ -69,4 +69,4 @@ func _after_text(_arg):
 
 func after_animation_sequence():
 	SS.save.locations_state.temple_prison = 1
-	S.change_scene("temple",false)
+	S.change_scene("temple", "none", false)

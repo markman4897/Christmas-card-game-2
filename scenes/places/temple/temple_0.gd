@@ -24,4 +24,4 @@ func after_animation_sequence():
 
 func _after_text(_msg):
 	SS.save.locations_state.temple = 1
-	S.change_scene("overworld", false)
+	S.change_scene("overworld", "none", false)

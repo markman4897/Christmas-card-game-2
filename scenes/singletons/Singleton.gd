@@ -96,6 +96,7 @@ func _ready():
 	#       got a "cyclic reference" error no matter how I went about it...
 	#       ... maybe next time I'll get it right from the start...
 	current_scene = root.get_node_or_null("menu")
+	
 	# this is just for debugging, when you don't start the game from the menu
 	if !current_scene:
 		current_scene = root.get_children()[root.get_child_count()-1]
@@ -113,7 +114,7 @@ func _ready():
 # Summon functions
 #
 
-func change_scene(scene:String, curtain:=true):
+func change_scene(scene:String, preferred_enterance:String="none", curtain:=true):
 	var is_curtain_present = root.get_node_or_null("curtain")
 	
 	# Disable input while switching scenes
@@ -149,20 +150,20 @@ func change_scene(scene:String, curtain:=true):
 		SS.save.last_location = scene
 	
 	var new_scene = scenes[scene][SS.save.locations_state[scene]].instance()
-	
+	new_scene.preferred_enterance = preferred_enterance
 	
 	root.call_deferred("add_child", new_scene)
 	current_scene = new_scene
 	
 	player = current_scene.find_node("player")
 	
+	if curtain:
+		control_curtain("open")
+	
 	# Enable movement after switching scene
 	disable_input(false)
 	# HACK: until I fix the above line to work everywhere -.-
 	disable_player_movement(false)
-	
-	if curtain:
-		control_curtain("open")
 
 func summon_textBox(node:Node, dialogue:Dictionary={}, connect_end_signal_to:String="none",
 		connect_hook_signal_to:String="none", sound:bool=true):
