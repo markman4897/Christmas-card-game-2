@@ -3,10 +3,10 @@ extends Node2D
 # acts as the world map for traveling around
 
 
-const snowed_in_text = {
+const path_locked_text = {
 	"start": {
 		"type": "response",
-		"text": "looks like the road is snowed in...",
+		"text": "looks like the road is snowed in, i should try going around or ask for help in the village",
 		"return": "none"
 	}
 }
@@ -22,6 +22,20 @@ func _ready() -> void:
 	$objects/moving/player.position = current_point.position
 	
 	AC.play_bg_music("sad")
+	
+	# check if bauble borough is completed
+	if SS.save.progression.bauble_borough > 0:
+		$logic/points/bauble_borough.up = 2
+	
+	# check if tinsel township is completed
+	if SS.save.progression.tinsel_township > 0:
+		$logic/points/tinsel_township.up = 2
+	
+	# check if all cities are completed
+	if (SS.save.progression.star_city > 0
+		and SS.save.progression.tinsel_township > 0
+		and SS.save.progression.bauble_borough > 0):
+		$logic/points/star_city.up = 2
 
 func _physics_process(delta) -> void:
 	move_player(delta)
@@ -61,7 +75,7 @@ func move_player(delta) -> void:
 	if direction != "none":
 		if current_point[direction] == 1:
 			input = false
-			S.summon_textBox(self, snowed_in_text, "after_text", "none", false)
+			S.summon_textBox(self, path_locked_text, "after_text", "none", false)
 			direction = "none"
 		
 		elif current_point[direction] == 2:
@@ -94,5 +108,5 @@ func load_current_point() -> void:
 func after_text(_arg):
 	# TODO: this is somewhat hacky, find a place to call this after the textbox
 	#       is gone and the click is over
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(0.2), "timeout")
 	input = true

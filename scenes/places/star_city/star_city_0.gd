@@ -191,4 +191,5 @@ func _after_move():
 
 func _after_text(arg):
 	if arg == "success":
-		print("success")
+		SS.save.locations_state.star_city = 1
+		SS.save.progression.star_city = 1

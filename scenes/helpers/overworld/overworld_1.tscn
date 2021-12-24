@@ -76,7 +76,7 @@ tracks/0/keys = {
 script = ExtResource( 6 )
 
 [node name="stars" parent="background" index="0"]
-frame = 2
+frame = 0
 
 [node name="bg" parent="background" index="1"]
 frame = 2
@@ -171,7 +171,7 @@ r_direction = true
 position = Vector2( 28, 102 )
 script = ExtResource( 1 )
 place = "bauble_borough"
-up = 2
+up = 1
 u_destination = NodePath("../star_city")
 u_path = NodePath("../../paths/bauble-star")
 u_direction = true
@@ -183,7 +183,7 @@ d_path = NodePath("../../paths/hub-bauble")
 position = Vector2( 88, 96 )
 script = ExtResource( 1 )
 place = "tinsel_township"
-up = 2
+up = 1
 u_destination = NodePath("../star_city")
 u_path = NodePath("../../paths/tinsel-star")
 u_direction = true
