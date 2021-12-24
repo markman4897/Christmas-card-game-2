@@ -30,9 +30,7 @@ var elf_text = {
 
 func _ready() -> void:
 	# set up red elf
-	$objects/static/elf.set_idle_animation("idle")
 	$objects/static/elf.connect_trigger(self, "_elf_trigger")
-	$objects/static/elf.movement_disabled = true
 	
 	# load music
 	AC.play_bg_music("happy")

@@ -11,5 +11,5 @@ func _ready():
 
 
 func after_animation_sequence():
-	SS.save.locations_state.temple += 1
+	SS.save.locations_state.temple = 1
 	S.change_scene("overworld", false)

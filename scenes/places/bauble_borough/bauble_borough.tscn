@@ -14,16 +14,17 @@ script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
-frame = 1
+frame = 3
 playing = true
 centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 3 )
 animation = "door_closed"
+frame = 1
 
 [node name="outer" parent="logic/border" index="0"]
-polygon = PoolVector2Array( 16, 123, 0, 124, 0, 111, 5, 109, 5, 87, 17, 90, 46, 81, 46, 73, 70, 73, 80, 67, 91, 78, 100, 81, 109, 77, 128, 83, 128, 110, 123, 122, 100, 128, 18, 128 )
+polygon = PoolVector2Array( 16, 123, 11, 123, 9, 128, 4, 128, 0, 128, 0, 115, 4, 115, 4, 87, 17, 90, 46, 81, 46, 73, 70, 73, 80, 67, 91, 78, 100, 81, 109, 77, 128, 83, 128, 110, 123, 122, 100, 128, 18, 128 )
 
 [node name="overworld" type="Position2D" parent="logic/entry_points" index="0"]
 position = Vector2( 63, 124 )
@@ -32,7 +33,7 @@ position = Vector2( 63, 124 )
 position = Vector2( 43, 93 )
 
 [node name="center_house" type="Position2D" parent="logic/npc_positions" index="0"]
-position = Vector2( 66, 76 )
+position = Vector2( 66, 82 )
 
 [node name="right_house" type="Position2D" parent="logic/npc_positions" index="1"]
 position = Vector2( 94, 85 )
@@ -41,7 +42,7 @@ position = Vector2( 94, 85 )
 position = Vector2( 24, 120 )
 
 [node name="door_trigger" type="Area2D" parent="logic/portals" index="0"]
-position = Vector2( 33, 86 )
+position = Vector2( 34, 88 )
 collision_layer = 0
 collision_mask = 32
 

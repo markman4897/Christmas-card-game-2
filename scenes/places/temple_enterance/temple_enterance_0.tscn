@@ -9,10 +9,11 @@
 script = ExtResource( 3 )
 
 [node name="bg" parent="background" index="0"]
-frame = 3
+frame = 4
 
 [node name="elf" parent="objects/static" index="0" instance=ExtResource( 2 )]
 position = Vector2( 78, 107 )
+is_actor = true
 idle_animation_exported = "cry"
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 1 )]

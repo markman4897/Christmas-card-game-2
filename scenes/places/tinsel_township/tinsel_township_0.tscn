@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/places/tinsel_township/tinsel_township.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/actors/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/places/tinsel_township/tinsel_township_0.gd" type="Script" id=3]
+[ext_resource path="res://scenes/actors/elf.tscn" type="PackedScene" id=4]
 
 [node name="tinsel_township" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="elf" parent="objects/static" index="0" instance=ExtResource( 4 )]
+position = Vector2( 22, 99 )
+elf_type = 2
+
+[node name="elf2" parent="objects/static" index="1" instance=ExtResource( 4 )]
+position = Vector2( 66, 92 )
+elf_type = 2
+
+[node name="elf3" parent="objects/static" index="2" instance=ExtResource( 4 )]
+position = Vector2( 110, 99 )
+elf_type = 2
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 2 )]
 position = Vector2( 67, 122 )

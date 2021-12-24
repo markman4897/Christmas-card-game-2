@@ -59,7 +59,7 @@ func move_player(delta) -> void:
 	if direction != "none":
 		if current_point[direction] == 1:
 			input = false
-			S.summon_textBox(self, snowed_in_text, "after_text")
+			S.summon_textBox(self, snowed_in_text, "after_text", "none", false)
 			direction = "none"
 		
 		elif current_point[direction] == 2:

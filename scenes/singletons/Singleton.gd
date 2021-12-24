@@ -19,6 +19,7 @@ const scenes := {
 	"temple_enterance": [
 		preload("res://scenes/places/temple_enterance/temple_enterance_0.tscn"),
 		preload("res://scenes/places/temple_enterance/temple_enterance_1.tscn"),
+		preload("res://scenes/places/temple_enterance/temple_enterance_2.tscn"),
 	],
 	"temple_prison": [
 		preload("res://scenes/places/temple_prison/temple_prison_0.tscn"),
@@ -28,6 +29,7 @@ const scenes := {
 	],
 	"bauble_borough": [
 		preload("res://scenes/places/bauble_borough/bauble_borough_0.tscn"),
+		preload("res://scenes/places/bauble_borough/bauble_borough_1.tscn"),
 	],
 	"sokoban": [
 		preload("res://scenes/helpers/sokoban/sokoban_0.tscn"),
@@ -121,7 +123,7 @@ func change_scene(scene:String, curtain:=true):
 	
 	# if we iterated scene too far or came to the last scene change
 	if SS.save.locations_state[scene] >= scenes[scene].size():
-		error("SS.save", '"'+scene+'" got over iterated! '+str(SS.save.locations_state[scene]))
+		error("SS.save", '"'+scene+'" got over iterated '+str(SS.save.locations_state[scene]))
 		SS.save.locations_state[scene] = scenes[scene].size()-1
 	
 	if scene != "menu":
@@ -176,15 +178,6 @@ func control_curtain(direction:String, connect_signal_to:String="none", node:=No
 	Curtain.run(direction)
 
 func control_letterboxing(state:bool):
-#	var is_letterboxing_present := root.get_node_or_null("letterboxing")
-#	print([state, is_letterboxing_present])
-#	match [state, is_letterboxing_present]:
-#		[true, null]:
-#			print("adding")
-#			root.add_child(letterboxing.instance())
-#		[false, Node]:
-#			print("removing")
-#			is_letterboxing_present.queue_free()
 	var is_letterboxing_present := root.get_node_or_null("letterboxing")
 	
 	if state and !is_letterboxing_present:

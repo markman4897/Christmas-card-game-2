@@ -44,6 +44,9 @@ func _ready() -> void:
 	
 	for present in $objects/static/presents.get_children():
 		present.connect("area_entered", self, "present_opened")
+	
+	# load music
+	AC.play_bg_music("happy")
 
 
 #

@@ -53,5 +53,5 @@ func _after_text(_arg):
 	$logic/AnimationPlayer.current_animation = "start"
 
 func after_animation_sequence():
-	SS.save.locations_state.temple_prison += 1
+	SS.save.locations_state.temple_prison = 1
 	S.change_scene("temple",false)

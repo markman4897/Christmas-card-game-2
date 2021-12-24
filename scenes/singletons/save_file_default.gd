@@ -20,4 +20,10 @@ export var locations_state := {
 	"sokoban": 0,
 }
 
+export var progression := {
+	"bauble_borough": 0,
+	"tinsel_township": 0,
+	"star_city": 0,
+}
+
 export var last_location := "temple_enterance"
