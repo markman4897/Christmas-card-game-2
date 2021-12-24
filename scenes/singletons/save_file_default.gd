@@ -17,6 +17,7 @@ export var locations_state := {
 	"star_city": 0,
 	"tinsel_township": 0,
 	"bauble_borough": 0,
+	"sokoban": 0,
 }
 
 export var last_location := "temple_enterance"

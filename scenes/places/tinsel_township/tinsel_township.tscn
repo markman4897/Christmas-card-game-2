@@ -17,12 +17,13 @@ script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
-frame = 1
+frame = 2
 playing = true
 centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 3 )
+frame = 1
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 0, 100, 9, 100, 22, 91, 22, 86, 34, 86, 43, 82, 59, 86, 92, 87, 96, 84, 108, 91, 110, 87, 128, 103, 128, 128, 0, 128 )

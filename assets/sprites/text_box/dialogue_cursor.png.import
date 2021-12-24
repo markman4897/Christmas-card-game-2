@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dialogue_cursor.png-29319014cfc18717056e61fac0cbd809.stex"
+path="res://.import/dialogue_cursor.png-901f00e768c63db1737c70e5d076be0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui_theme/dialogue_cursor.png"
-dest_files=[ "res://.import/dialogue_cursor.png-29319014cfc18717056e61fac0cbd809.stex" ]
+source_file="res://assets/sprites/text_box/dialogue_cursor.png"
+dest_files=[ "res://.import/dialogue_cursor.png-901f00e768c63db1737c70e5d076be0d.stex" ]
 
 [params]
 

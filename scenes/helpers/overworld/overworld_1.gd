@@ -21,7 +21,7 @@ var direction := "none"
 func _ready() -> void:
 	$objects/moving/player.position = current_point.position
 
-func _process(delta) -> void:
+func _physics_process(delta) -> void:
 	move_player(delta)
 
 func _unhandled_input(event) -> void:

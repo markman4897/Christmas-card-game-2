@@ -14,14 +14,13 @@ script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
-frame = 3
+frame = 1
 playing = true
 centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 3 )
 animation = "door_closed"
-frame = 2
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 16, 123, 0, 124, 0, 111, 5, 109, 5, 87, 17, 90, 46, 81, 46, 73, 70, 73, 80, 67, 91, 78, 100, 81, 109, 77, 128, 83, 128, 110, 123, 122, 100, 128, 18, 128 )

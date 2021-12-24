@@ -27,13 +27,16 @@ const scenes := {
 		preload("res://scenes/places/temple/temple_0.tscn"),
 	],
 	"bauble_borough": [
-		preload("res://scenes/places/bauble_borough/bauble_borough.tscn"),
+		preload("res://scenes/places/bauble_borough/bauble_borough_0.tscn"),
+	],
+	"sokoban": [
+		preload("res://scenes/helpers/sokoban/sokoban_0.tscn"),
 	],
 	"tinsel_township": [
-		preload("res://scenes/places/tinsel_township/tinsel_township.tscn"),
+		preload("res://scenes/places/tinsel_township/tinsel_township_0.tscn"),
 	],
 	"star_city": [
-		preload("res://scenes/places/star_city/star_city.tscn"),
+		preload("res://scenes/places/star_city/star_city_0.tscn"),
 	],
 }
 
@@ -118,7 +121,7 @@ func change_scene(scene:String, curtain:=true):
 	
 	# if we iterated scene too far or came to the last scene change
 	if SS.save.locations_state[scene] >= scenes[scene].size():
-		S.error("SS.save", '"'+scene+'" got over iterated! '+str(SS.save.locations_state[scene]))
+		error("SS.save", '"'+scene+'" got over iterated! '+str(SS.save.locations_state[scene]))
 		SS.save.locations_state[scene] = scenes[scene].size()-1
 	
 	if scene != "menu":
