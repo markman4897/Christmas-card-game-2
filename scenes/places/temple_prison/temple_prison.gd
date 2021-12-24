@@ -1,5 +1,5 @@
 class_name TemplePrison
-extends Node2D
+extends BasePlace
 
 
 #

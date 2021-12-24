@@ -1,16 +1,5 @@
 class_name Temple
-extends Node2D
-
-
-#
-# MAIN FUNCS
-#
-
-func _ready():
-	# just in case I fuck something up in the editor...
-	$logic/portals/prison_door.monitoring = false
-	$logic/portals/enterance_door.monitoring = false
-	$background/santa_sleigh.visible = false
+extends BasePlace
 
 
 #

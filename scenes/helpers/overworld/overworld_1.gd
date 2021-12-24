@@ -20,6 +20,8 @@ var direction := "none"
 
 func _ready() -> void:
 	$objects/moving/player.position = current_point.position
+	
+	AC.play_bg_music("sad")
 
 func _physics_process(delta) -> void:
 	move_player(delta)

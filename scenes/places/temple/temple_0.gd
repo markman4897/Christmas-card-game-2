@@ -1,6 +1,15 @@
 extends Temple
 
 
+var big_bad_text = {
+	"start": {
+		"type": "response",
+		"text": "leave . . .",
+		"return": "win"
+	}
+}
+
+
 func _ready():
 	$objects/moving/big_bad.toggle_flip_h(true)
 	$logic/AnimationPlayer.current_animation = "start"
@@ -11,5 +20,8 @@ func _ready():
 
 
 func after_animation_sequence():
+	S.summon_textBox(self, big_bad_text, "_after_text")
+
+func _after_text(_msg):
 	SS.save.locations_state.temple = 1
 	S.change_scene("overworld", false)

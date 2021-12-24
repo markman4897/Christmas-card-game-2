@@ -132,7 +132,7 @@ func change_scene(scene:String, curtain:=true):
 	var new_scene = scenes[scene][SS.save.locations_state[scene]].instance()
 	
 	
-	root.add_child(new_scene)
+	root.call_deferred("add_child", new_scene)
 	current_scene = new_scene
 	
 	player = current_scene.find_node("player")
@@ -170,7 +170,7 @@ func control_curtain(direction:String, connect_signal_to:String="none", node:=No
 	# check if we want to close the curtain and if there is a curtain already present
 	if direction == "close" and root.get_node_or_null("curtain") == null:
 		Curtain = curtain.instance()
-		root.add_child(Curtain)
+		root.add_child(Curtain) # DON'T CALL WITH "call_deferred" !
 	
 	if connect_signal_to != "none":
 		var _void = Curtain.connect("done", node, connect_signal_to)
@@ -181,7 +181,7 @@ func control_letterboxing(state:bool):
 	var is_letterboxing_present := root.get_node_or_null("letterboxing")
 	
 	if state and !is_letterboxing_present:
-		root.add_child(letterboxing.instance())
+		root.call_deferred("add_child", letterboxing.instance())
 	elif !state and is_letterboxing_present:
 		is_letterboxing_present.queue_free()
 

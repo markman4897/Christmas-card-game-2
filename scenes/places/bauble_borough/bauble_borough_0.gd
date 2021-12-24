@@ -4,17 +4,45 @@ extends BaubleBorough
 var elf_text = {
 	"start": {
 		"type": "response",
-		"text": "boo hoo... boxes stack bad, me so sad",
+		"text": "how awful! how terrible! if only some nondescript elf could come and help me, the honest",
 		"next": "1"
 	},
 	"1": {
 		"type": "response",
-		"text": "oh hey! you look like a capable individual, mind helping this sad elf out?",
-		"next": "end"
+		"text": "and generous mayor of bauble borough!",
+		"next": "2"
+	},
+	"2": {
+		"type": "response",
+		"text": "so many presents! but alas, my meagre frame cannot hope to move them all to the next room!",
+		"next": "3"
+	},
+	"3": {
+		"type": "response",
+		"text": "you there, elf! come to my aid and you will be handsomely rewarded with whatever your",
+		"next": "4"
+	},
+	"4": {
+		"type": "question",
+		"text": "small heart desires!",
+		"options": [
+			{
+				"text": "i want a pony!",
+				"next": "end"
+			},
+			{
+				"text": "i need the city key",
+				"next": "end"
+			},
+			{
+				"text": "just some food please...",
+				"next": "end"
+			}
+		]
 	},
 	"end": {
 		"type": "response",
-		"text": "come, stack the boxes in my house please",
+		"text": "hold your tongue! this is no time for daydreaming. to work you go!",
 		"return": "prompt_over"
 	}
 }
@@ -22,17 +50,17 @@ var elf_text = {
 var elf2_text = {
 	"start": {
 		"type": "response",
-		"text": "see that guy over there?",
+		"text": "poor mayor.",
 		"next": "1"
 	},
 	"1": {
 		"type": "response",
-		"text": "he's been whining for days now, noone can get him to stop",
+		"text": "did you know he recently had a hip surgery? it didn't go well...",
 		"next": "end"
 	},
 	"end": {
 		"type": "response",
-		"text": "it's super annoying...",
+		"text": "i sure hope he will get better soon.",
 		"return": "prompt_over"
 	}
 }

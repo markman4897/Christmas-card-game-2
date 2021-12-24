@@ -71,6 +71,7 @@ tracks/0/keys = {
 extents = Vector2( 54, 4.5 )
 
 [node name="textBox" type="Node2D"]
+z_index = 4096
 script = ExtResource( 3 )
 
 [node name="text" type="NinePatchRect" parent="."]

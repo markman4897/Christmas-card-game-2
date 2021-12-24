@@ -5,18 +5,33 @@ extends TemplePrison
 
 var santa_text = {
 	"start": {
-		"type": "response",
-		"text": "boo hoo... i'm locked up and i can't do nothing about it...",
-		"next": "1"
+		"type": "question",
+		"text": "weep! weep! egads! a friendly, but otherwise very humdrum elf has come to my aid! help!",
+		"options": [
+			{
+				"text": "guy, i'm tryin' to help ya",
+				"next": "1"
+			}
+		]
 	},
 	"1": {
 		"type": "response",
-		"text": "oh hey! you look like a capable individual, mind helping this sad santa out?",
+		"text": "you have to free me, i beg you! see those three locks on the jail gate? you need special keys to",
+		"next": "2"
+	},
+	"2": {
+		"type": "response",
+		"text": "unlock them! each key is to be found in one of the settlements scattered all around the mountain.",
+		"next": "3"
+	},
+	"3": {
+		"type": "response",
+		"text": "find them... wait, what was that?!",
 		"next": "end"
 	},
 	"end": {
 		"type": "response",
-		"text": "break me out! p.l.e.a.s.e!!!",
+		"text": "r u n !!!",
 		"return": "win"
 	}
 }

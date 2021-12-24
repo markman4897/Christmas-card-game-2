@@ -115,9 +115,10 @@ func end_animation():
 # HACK: mouse support mentioned above
 func _options_touch(_viewport, event, _shape, option):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		current = dialogue[current]["options"][option]["next"]
-		$options.visible = false
-		main()
+		if not option >= dialogue[current]["options"].size():
+			current = dialogue[current]["options"][option]["next"]
+			$options.visible = false
+			main()
 
 
 #

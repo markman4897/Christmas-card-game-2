@@ -38,7 +38,6 @@ func _ready():
 	
 	# get target positions
 	target_pos = $room.get_used_cells_by_id(TARGET)
-	print(target_pos)
 
 func _unhandled_input(event) -> void:
 	if input and event.is_pressed():
