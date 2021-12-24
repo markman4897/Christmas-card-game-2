@@ -9,7 +9,7 @@
 script = ExtResource( 3 )
 
 [node name="elf" parent="objects/static" index="1" instance=ExtResource( 1 )]
-position = Vector2( 88, 96 )
+position = Vector2( 79, 97 )
 elf_type = 1
 
 [node name="elf2" parent="objects/static" index="2" instance=ExtResource( 1 )]

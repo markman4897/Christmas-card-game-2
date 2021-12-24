@@ -22,12 +22,7 @@ func _ready():
 	$objects/static/elf3.connect_trigger(self, "_elf3_trigger")
 	
 	# load music
-	AC.play_bg_music("sad")
-	
-	yield(get_tree().create_timer(0.5), "timeout")
-	$objects/static/elf.disable_collisions_when_moving = true
-	$objects/static/elf.connect_end_move(self, "_after_move")
-	$objects/static/elf.move_to(Vector2(76,96))
+	AC.play_bg_music("happy")
 
 
 #
