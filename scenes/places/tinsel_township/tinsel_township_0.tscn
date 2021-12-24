@@ -8,6 +8,12 @@
 [node name="tinsel_township" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
+[node name="stars" parent="background" index="0"]
+frame = 2
+
+[node name="bg" parent="background" index="1"]
+frame = 2
+
 [node name="elf" parent="objects/static" index="0" instance=ExtResource( 4 )]
 position = Vector2( 22, 99 )
 elf_type = 2

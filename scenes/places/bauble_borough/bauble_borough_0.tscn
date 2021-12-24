@@ -9,7 +9,7 @@
 script = ExtResource( 4 )
 
 [node name="stars" parent="background" index="0"]
-frame = 2
+frame = 1
 
 [node name="bg" parent="background" index="1"]
 frame = 2

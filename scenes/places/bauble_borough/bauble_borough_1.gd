@@ -23,6 +23,7 @@ var elf_text = {
 func _ready():
 	# set up elf
 	$objects/static/elf.connect_trigger(self, "_elf_trigger")
+	$objects/static/elf2.connect_trigger(self, "_elf2_trigger")
 	
 	# load music
 	AC.play_bg_music("happy")
@@ -34,3 +35,7 @@ func _ready():
 
 func _elf_trigger(_a, _b, _c, _d) -> void:
 	S.summon_textBox(self, elf_text)
+
+func _elf2_trigger(_a, _b, _c, _d) -> void:
+	var random_text = S.get_random_text()
+	S.summon_textBox(self, random_text)

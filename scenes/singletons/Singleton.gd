@@ -47,6 +47,25 @@ const textBox := preload("res://scenes/helpers/text_box/text_box.tscn")
 const curtain := preload("res://scenes/helpers/curtain/curtain.tscn")
 const letterboxing := preload("res://scenes/helpers/letterboxing/letterboxing.tscn")
 
+const random_texts := [
+	"this blows!",
+	"i don't know what i'm gonna do without christmas.",
+	"you got some change for the vending machine? it doesn't accept notes.",
+	"i heard fruitcake makes you fat, but doesn't the fruit cancel out the cake?",
+	"you have a resting grinch face, you know that?",
+	"sleigh, queen, sleigh. yass!",
+	"christmas is ruing, but wait! there's myrrh!",
+	"don't cross me or yule be sorry.",
+	"i like to have the final sleigh in things.",
+	"it's the most wonderful time for a beer.",
+	"i'm feeling a bit claus-trophobic.",
+	"time to spruce things up!",
+	"i may not look okay, but i assure you i'm pine.",
+	"it's ice to meet you.",
+	"treat your elf, gurl.",
+]
+
+
 onready var root := get_tree().get_root()
 var Curtain : Node
 
@@ -211,8 +230,19 @@ func summon_animated_sprite(node:Node, frames:String, position:Vector2):
 # Other functions
 #
 
-func report_current_scene(node:Node):
-	current_scene = node
+func get_random_text() -> Dictionary:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	
+	var dict = {
+		"start": {
+			"type": "response",
+			"text": random_texts[rng.randi_range(0,random_texts.size()-1)],
+			"return": "none"
+		}
+	}
+	
+	return dict
 
 func disable_input(state:bool):
 	root.set_disable_input(state)
