@@ -6,11 +6,10 @@ extends BasePlace
 # SIGNAL HANDLING
 #
 
-func _prison_door_trigger():
+func _prison_door_trigger(_body):
 	S.change_scene("temple_prison", "door")
 
-
-func _enterance_door_trigger():
+func _enterance_door_trigger(_body):
 	S.change_scene("temple_enterance", "door")
 
 # ensures the night animation goes after transition animation

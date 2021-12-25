@@ -11,6 +11,9 @@ var big_bad_text = {
 
 
 func _ready():
+	$logic/portals/prison_door.monitoring = false
+	$logic/portals/enterance_door.monitoring = false
+	
 	$objects/moving/big_bad.toggle_flip_h(true)
 	$logic/AnimationPlayer.current_animation = "start"
 	

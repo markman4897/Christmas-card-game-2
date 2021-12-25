@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/places/temple_enterance/temple_enterance.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/places/temple_enterance/temple_enterance_1.gd" type="Script" id=2]
 [ext_resource path="res://scenes/actors/player.tscn" type="PackedScene" id=3]
 
 [node name="temple_enterance" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="bg" parent="background" index="0"]
-frame = 2
+animation = "opened"
+frame = 1
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 3 )]
 position = Vector2( 39, 124 )
 
 [node name="snow" parent="foreground" index="0"]
-frame = 0
+frame = 3

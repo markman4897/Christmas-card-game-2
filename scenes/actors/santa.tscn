@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/aseprite_files/npcs/santa.ase" type="SpriteFrames" id=2]
 [ext_resource path="res://scenes/actors/npc.gd" type="Script" id=3]
 
-[node name="actor" instance=ExtResource( 1 )]
+[node name="santa" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 idle_animation_exported = "celebrate_2"
 

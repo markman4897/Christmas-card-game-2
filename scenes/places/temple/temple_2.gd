@@ -1,6 +1,6 @@
-extends BasePlace
+extends Temple
 
-# old version of temple scene, has broken animation transition for some reason...
+# old version of temple scene
 
 
 #
@@ -10,21 +10,21 @@ extends BasePlace
 var elf_text = {
 	"start": {
 		"type": "response",
-		"text": "why of course, traveller! the real gift of christmas are the people around you!",
+		"text": "hey now! these are not all for you, you know! leave some for the rest of us.",
 		"next": "end"
 	},
 	"end": {
 		"type": "response",
-		"text": "merry christmas!",
-		"return": "win"
+		"text": "but still, merry christmas.",
+		"return": "first"
 	}
 }
 
 var elf_text_2 = {
 	"start": {
 		"type": "response",
-		"text": "merry christmas!",
-		"return": "quo"
+		"text": "merry christmas.",
+		"return": "none"
 	}
 }
 
@@ -59,23 +59,13 @@ func present_opened(_area):
 		$objects/moving/elf.move_to(Vector2(106,112))
 
 func _elf_trigger(_a, _b, _c, _d) -> void:
-	# start the text thing
-	if text_mode_2:
-		S.summon_textBox(self, elf_text_2, "after_text")
-	else:
-		S.summon_textBox(self, elf_text, "after_text")
+	S.summon_textBox(self, elf_text, "_after_text")
 
 
 #
-# OTHER FUNCS
+# Other functions
 #
 
-func after_text(arg):
-	if arg == "win":
-		# only first talk
-		$background/bg.animation = "transition"
-		text_mode_2 = true
-		$background/santa_sleigh.play()
-		
-		# change the music (pretty sure this belongs here)
-		AC.play_bg_music("happy")
+func _after_text(arg):
+	if arg == "first":
+		elf_text = elf_text_2

@@ -53,6 +53,8 @@ func _ready() -> void:
 	
 	# just in case we start from this scene
 	AC.play_bg_music("sad")
+	
+	SS.save.locations_state.temple_enterance = 1
 
 
 func _santa_trigger(_a, _b, _c, _d):

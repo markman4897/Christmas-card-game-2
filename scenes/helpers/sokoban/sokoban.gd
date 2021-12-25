@@ -41,7 +41,8 @@ func _ready():
 	# get target positions
 	target_pos = $room.get_used_cells_by_id(TARGET)
 
-func _unhandled_input(event) -> void:
+# TODO: make this unhandled and enable input propagation, idk what's blocking it rn
+func _input(event) -> void:
 	if input and event.is_pressed():
 		if event.is_action("ui_up"):
 			try_move("up")

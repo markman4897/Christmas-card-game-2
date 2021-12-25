@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/actors/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/places/temple_prison/temple_prison.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/temple_door_on_floor.png" type="Texture" id=3]
+
+[node name="temple_prison" instance=ExtResource( 2 )]
+
+[node name="prison_bars" parent="objects/static" index="0"]
+visible = false
+
+[node name="door_on_floor" type="Sprite" parent="objects/static" index="1"]
+position = Vector2( 84, 97 )
+texture = ExtResource( 3 )
+centered = false
+flip_h = true
+
+[node name="player" parent="objects/moving" index="0" instance=ExtResource( 1 )]
+position = Vector2( 116, 107 )

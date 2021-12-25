@@ -23,9 +23,12 @@ const scenes := {
 	],
 	"temple_prison": [
 		preload("res://scenes/places/temple_prison/temple_prison_0.tscn"),
+		preload("res://scenes/places/temple_prison/temple_prison_1.tscn"),
 	],
 	"temple": [
 		preload("res://scenes/places/temple/temple_0.tscn"),
+		preload("res://scenes/places/temple/temple_1.tscn"),
+		preload("res://scenes/places/temple/temple_2.tscn"),
 	],
 	"bauble_borough": [
 		preload("res://scenes/places/bauble_borough/bauble_borough_0.tscn"),
@@ -36,6 +39,7 @@ const scenes := {
 	],
 	"tinsel_township": [
 		preload("res://scenes/places/tinsel_township/tinsel_township_0.tscn"),
+		preload("res://scenes/places/tinsel_township/tinsel_township_1.tscn"),
 	],
 	"star_city": [
 		preload("res://scenes/places/star_city/star_city_0.tscn"),

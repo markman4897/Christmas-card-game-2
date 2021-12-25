@@ -13,7 +13,7 @@ var elf_text = {
 	},
 	"1": {
 		"type": "response",
-		"text": "mr bigbad is calling you in, that's a first!",
+		"text": "mr krampus is calling you in, that's a first!",
 		"next": "end"
 	},
 	"end": {
