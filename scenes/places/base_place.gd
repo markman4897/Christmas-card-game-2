@@ -15,6 +15,9 @@ func _process(_delta):
 	# loop for setting z_index of moving objects
 	for node in $objects/moving.get_children():
 		_set_z_index(node)
+	# HACK... FIXME: make static and moving not relative to each other or something
+	for node in $objects/static.get_children():
+		_set_z_index(node)
 
 
 # setts z_index of moving objects to position.y in realtime

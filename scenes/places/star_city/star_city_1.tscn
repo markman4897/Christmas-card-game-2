@@ -22,4 +22,4 @@ idle_animation_exported = "cry"
 elf_type = 1
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 4 )]
-position = Vector2( 67, 123 )
+position = Vector2( 67, 121 )

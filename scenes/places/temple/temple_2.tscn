@@ -53,4 +53,4 @@ flipped = true
 position = Vector2( 106, 144 )
 
 [node name="player" parent="objects/moving" index="1" instance=ExtResource( 2 )]
-position = Vector2( 64, 124 )
+position = Vector2( 64, 121 )

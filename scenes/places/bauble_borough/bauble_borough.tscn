@@ -14,20 +14,19 @@ script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
-frame = 3
+frame = 2
 playing = true
 centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 3 )
 animation = "door_closed"
-frame = 1
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 16, 123, 11, 123, 9, 128, 4, 128, 0, 128, 0, 115, 4, 115, 4, 87, 17, 90, 46, 81, 46, 73, 70, 73, 80, 67, 91, 78, 100, 81, 109, 77, 128, 83, 128, 110, 123, 122, 100, 128, 18, 128 )
 
 [node name="overworld" type="Position2D" parent="logic/entry_points" index="0"]
-position = Vector2( 63, 124 )
+position = Vector2( 63, 122 )
 
 [node name="sokoban" type="Position2D" parent="logic/entry_points" index="1"]
 position = Vector2( 43, 93 )
@@ -50,7 +49,7 @@ collision_mask = 32
 shape = SubResource( 1 )
 
 [node name="overworld_trigger" type="Area2D" parent="logic/portals" index="1"]
-position = Vector2( 63, 127 )
+position = Vector2( 63, 125 )
 collision_layer = 0
 collision_mask = 32
 

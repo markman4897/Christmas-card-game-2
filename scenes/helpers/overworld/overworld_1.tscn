@@ -12,12 +12,12 @@ _data = {
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 95, 109, 0, 0, 0, 0, 60, 110, 0, 0, 0, 0, 60, 105 )
+"points": PoolVector2Array( 0, 0, 0, 0, 95, 109, 0, 0, 0, 0, 60, 110, 0, 0, 0, 0, 60, 102 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 44, 129, 0, 0, 0, 0, 44, 114, 0, 0, 0, 0, 63, 87, 0, 0, 0, 0, 75, 87 )
+"points": PoolVector2Array( 0, 0, 0, 0, 44, 126, 0, 0, 0, 0, 44, 114, 0, 0, 0, 0, 63, 87, 0, 0, 0, 0, 75, 87 )
 }
 
 [sub_resource type="Curve2D" id=4]
@@ -76,10 +76,10 @@ tracks/0/keys = {
 script = ExtResource( 6 )
 
 [node name="stars" parent="background" index="0"]
-frame = 3
+frame = 0
 
 [node name="bg" parent="background" index="1"]
-frame = 1
+frame = 2
 
 [node name="paths" type="Node2D" parent="logic" index="4"]
 
@@ -113,7 +113,7 @@ position = Vector2( -16, -24 )
 curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/bauble-star" index="0"]
-position = Vector2( 44, 129 )
+position = Vector2( 44, 126 )
 rotate = false
 loop = false
 
@@ -139,8 +139,7 @@ position = Vector2( -16, -61 )
 curve = SubResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="logic/paths/star-temple" index="0"]
-position = Vector2( 75, 107 )
-offset = 16.9984
+position = Vector2( 75, 124 )
 rotate = false
 loop = false
 
@@ -175,7 +174,7 @@ d_destination = NodePath("../hub")
 d_path = NodePath("../../paths/hub-bauble")
 
 [node name="tinsel_township" type="Position2D" parent="logic/points" index="2"]
-position = Vector2( 88, 96 )
+position = Vector2( 88, 100 )
 script = ExtResource( 1 )
 place = "tinsel_township"
 up = 1
@@ -202,7 +201,7 @@ r_destination = NodePath("../tinsel_township")
 r_path = NodePath("../../paths/tinsel-star")
 
 [node name="temple" type="Position2D" parent="logic/points" index="4"]
-position = Vector2( 59, 63 )
+position = Vector2( 59, 46 )
 script = ExtResource( 1 )
 place = "temple_enterance"
 down = 2

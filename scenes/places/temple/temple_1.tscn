@@ -13,7 +13,7 @@ script = ExtResource( 5 )
 frame = 1
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 1 )]
-position = Vector2( 64, 124 )
+position = Vector2( 64, 121 )
 
 [node name="big_bad" parent="objects/moving" index="1" instance=ExtResource( 2 )]
 position = Vector2( 113, 112 )

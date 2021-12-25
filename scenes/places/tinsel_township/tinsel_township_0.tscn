@@ -9,7 +9,7 @@
 script = ExtResource( 3 )
 
 [node name="bg" parent="background" index="1"]
-frame = 1
+frame = 0
 
 [node name="elf" parent="objects/static" index="0" instance=ExtResource( 4 )]
 position = Vector2( 36, 110 )
@@ -22,4 +22,4 @@ is_actor = true
 elf_type = 2
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 2 )]
-position = Vector2( 67, 122 )
+position = Vector2( 67, 120 )

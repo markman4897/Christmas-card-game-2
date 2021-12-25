@@ -8,6 +8,12 @@
 [node name="star_city" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
+[node name="overworld_trigger" parent="logic/portals" index="0"]
+position = Vector2( 67, 124 )
+
+[node name="collision" parent="logic/portals/overworld_trigger" index="0"]
+position = Vector2( 0, 0 )
+
 [node name="elf" parent="objects/static" index="1" instance=ExtResource( 3 )]
 position = Vector2( 135, 96 )
 elf_type = 1
@@ -24,4 +30,4 @@ idle_animation_exported = "run_up"
 elf_type = 1
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 2 )]
-position = Vector2( 67, 123 )
+position = Vector2( 67, 121 )

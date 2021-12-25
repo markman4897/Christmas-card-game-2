@@ -16,4 +16,4 @@ centered = false
 flip_h = true
 
 [node name="player" parent="objects/moving" index="0" instance=ExtResource( 1 )]
-position = Vector2( 116, 107 )
+position = Vector2( 110, 106 )

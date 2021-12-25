@@ -3,7 +3,7 @@ extends Npc
 # adds player controlled movement
 
 
-const control_deadzone := 3
+const control_deadzone := 2
 
 const FIRST_COLOR = Color("d95763")
 const SECOND_COLOR = Color("ac3232")

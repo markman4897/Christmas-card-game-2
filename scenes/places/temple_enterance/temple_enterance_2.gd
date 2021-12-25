@@ -51,7 +51,7 @@ func _elf_trigger(_a, _b, _c, _d) -> void:
 
 func _after_text(_arg):
 	# set other stuff to advance
-	$logic/door_trigger.monitoring = true
+	$logic/portals/door_trigger.monitoring = true
 	if $background/bg.animation != "opened":
 		AC.play_sfx("door creek")
 		$background/bg.animation = "opening"

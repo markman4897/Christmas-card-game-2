@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/aseprite_files/places/tinsel_township/evergreens.ase" type="SpriteFrames" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 2 )
+extents = Vector2( 8, 4.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1, 1 )
@@ -17,25 +17,26 @@ script = ExtResource( 2 )
 
 [node name="stars" type="AnimatedSprite" parent="background" index="0"]
 frames = ExtResource( 4 )
-frame = 1
+frame = 3
 playing = true
 centered = false
 
 [node name="bg" parent="background" index="1"]
 frames = ExtResource( 3 )
+frame = 1
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 0, 100, 9, 100, 22, 91, 22, 86, 34, 86, 43, 82, 59, 86, 92, 87, 96, 84, 108, 91, 110, 87, 128, 103, 128, 128, 0, 128 )
 
 [node name="flowers" type="CollisionShape2D" parent="logic/border" index="1"]
-position = Vector2( 96, 114 )
+position = Vector2( 96, 111.5 )
 shape = SubResource( 1 )
 
 [node name="rock" type="CollisionPolygon2D" parent="logic/border" index="2"]
-polygon = PoolVector2Array( 24, 112, 34, 115, 45, 112, 43, 107, 27, 107 )
+polygon = PoolVector2Array( 25, 112, 34, 113, 43, 111, 42, 107, 39, 104, 30, 104, 27, 107 )
 
 [node name="overworld" type="Position2D" parent="logic/entry_points" index="0"]
-position = Vector2( 67, 122 )
+position = Vector2( 67, 120 )
 
 [node name="rock" type="Position2D" parent="logic/npc_positions" index="0"]
 position = Vector2( 34, 108 )
@@ -53,7 +54,7 @@ position = Vector2( 66, 92 )
 position = Vector2( 110, 99 )
 
 [node name="overworld_trigger" type="Area2D" parent="logic/portals" index="0"]
-position = Vector2( 67, 127 )
+position = Vector2( 67, 124 )
 collision_layer = 0
 collision_mask = 32
 

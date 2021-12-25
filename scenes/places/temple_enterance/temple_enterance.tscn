@@ -17,7 +17,7 @@ script = ExtResource( 6 )
 [node name="bg" parent="background" index="0"]
 frames = ExtResource( 2 )
 animation = "closed"
-frame = 5
+frame = 2
 
 [node name="outer" parent="logic/border" index="0"]
 polygon = PoolVector2Array( 0, 108, 32, 85, 53, 77, 76, 77, 80, 68, 98, 78, 107, 105, 128, 121, 128, 128, 0, 128 )
@@ -26,10 +26,10 @@ polygon = PoolVector2Array( 0, 108, 32, 85, 53, 77, 76, 77, 80, 68, 98, 78, 107,
 position = Vector2( 66, 92 )
 
 [node name="overworld" type="Position2D" parent="logic/entry_points" index="1"]
-position = Vector2( 45, 124 )
+position = Vector2( 47, 122 )
 
 [node name="secret_enterance" type="Position2D" parent="logic/entry_points" index="2"]
-position = Vector2( 38, 94 )
+position = Vector2( 41, 93 )
 
 [node name="rock" type="Position2D" parent="logic/npc_positions" index="0"]
 position = Vector2( 78, 107 )
@@ -51,7 +51,7 @@ collision_mask = 32
 shape = SubResource( 1 )
 
 [node name="overworld_trigger" type="Area2D" parent="logic/portals" index="2"]
-position = Vector2( 38, 127 )
+position = Vector2( 44, 125 )
 collision_layer = 0
 collision_mask = 32
 
@@ -61,6 +61,7 @@ shape = SubResource( 2 )
 [node name="snow" type="AnimatedSprite" parent="foreground" index="0"]
 frames = ExtResource( 3 )
 animation = "idle"
+frame = 2
 playing = true
 centered = false
 

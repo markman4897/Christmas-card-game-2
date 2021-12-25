@@ -13,7 +13,7 @@ func _back_enterance_trigger(_body: Node) -> void:
 	S.change_scene("temple_prison", "secret_enterance")
 
 func _overworld_trigger(_body: Node) -> void:
-	S.change_scene("overworld", "temple_enterance")
+	S.change_scene("overworld", "temple")
 
 func _on_bg_animation_finished() -> void:
 	if $background/bg.animation == "opening":
